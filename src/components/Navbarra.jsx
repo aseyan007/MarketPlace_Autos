@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./Context/UsuarioContext";
-import Boton from "./Boton";
+import Boton from "./components/Boton";
 
 function Navbarra() {
   const { logout, user } = useContext(UserContext);
