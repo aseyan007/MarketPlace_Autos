@@ -3,7 +3,7 @@ import { Card, Form } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { AutosContext } from "./Context/AutosContext";
 import { Link, useNavigate } from "react-router-dom";
-import Boton from "./boton";
+import Boton from "./Boton";
 import corazonLleno from "../assets/icons/30571.png";
 import corazonVacio from "../assets/icons/corazon_borde.avif"
 
