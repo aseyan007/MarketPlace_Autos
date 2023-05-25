@@ -27,8 +27,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <>
-        <Navbarra classname="contenedorMenu"/>
+      
+        <Navbarra />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -67,7 +67,7 @@ function App() {
             }
           />
         </Routes>
-        </>
+        
       </BrowserRouter>
     </>
   );

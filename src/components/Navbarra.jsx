@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { UserContext } from "./Context/UsuarioContext";
 import Boton from "./boton";
 
-function Navbarra(props) {
+function Navbarra() {
   const { logout, user } = useContext(UserContext);
   const navigate = useNavigate();
 
