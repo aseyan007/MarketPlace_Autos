@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "imagen": "https://images.hola.com/imagenes/cocina/noticiaslibros/20230310227825/champan-brad-pitt-oscars-2023/1-217-448/bradp-t.jpg",
+      "nombre": "Brad",
+      "apellido":"Pitt",
+      "email": "brad@pitt.com",
+      "password": "123456",
+      "direccion": "Calle Test 123",
+      "ciudad": "Ciudad Test",
+      "region": "Estado Test",
+      "codigo zip": "1234"
+    }
+  ]

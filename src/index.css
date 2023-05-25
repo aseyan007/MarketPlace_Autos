@@ -1,0 +1,490 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a.active {
+  color: #c62828;
+}
+
+.contenedorMenu {
+  position: sticky;
+  top: 0;
+}
+
+.paginas {
+  margin-left: auto;
+}
+
+.paginasItem {
+  font-size: larger;
+  color: white;
+  text-decoration: none;
+}
+
+
+
+.imagencarrusel1 {
+  width: 400px;
+  height: 200px;
+}
+
+.accesosDirectos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 70%;
+}
+
+.inputBusquedaHome {
+  width: 80vw;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.carruselItem {
+  display: flex;
+  align-items: stretch;
+}
+
+.categorias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.categorias h2 {
+  margin-top: 3.5rem;
+  font-weight: 400;
+}
+
+.categorias button {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.categorias button:hover {
+  border: solid #5684c2 2px;
+}
+
+.seccionCategorias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.botonAuto {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_2X_643015-MLA49805178287_042022-N.webp");
+  background-size: cover;
+}
+.botonCamioneta {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_2X_894582-MLA49782976328_042022-N.webp");
+  background-size: cover;
+}
+.boton4x4 {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_2X_695188-MLA49783038788_042022-N.webp");
+  background-size: cover;
+}
+.botonSuv {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_2X_775185-MLA49805151475_042022-N.webp");
+  background-size: cover;
+}
+.botonMoto {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_2X_754451-MLA49783079313_042022-N.webp");
+  background-size: cover;
+}
+
+.vehiculo {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.galeriaGrilla {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+.imagenGrilla {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 25px;
+}
+
+.meGustaCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.imagenFavoritos {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  width: 20rem;
+  height: 30rem;
+}
+
+.perfilLinks {
+  text-decoration: none;
+}
+
+.tarjeta {
+  box-shadow: 10px 10px rgb(103, 103, 103);
+  /* border: 15px; */
+}
+
+.contenedorInicio {
+  width: 70vw;
+  margin-top: 4rem;
+  border: solid black 2.5px;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.carrito {
+  width: 70vw;
+  height: 70vh;
+}
+
+.contenedorRegistro {
+  width: 75vw;
+  border: solid #5684c2 2.5px;
+  border-radius: 15px;
+  padding: 0.75rem;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.editarPerfil {
+  width: 100%;
+  border: solid #5684c2 2.5px;
+  border-radius: 15px;
+  padding: 0.75rem;
+
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.perfilUsuario {
+  margin-top: 5rem;
+  width: 70vw;
+  height: 20rem;
+  border: solid #5684c2 2.5px;
+  border-radius: 15px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listaPerfilUsuario {
+  display: flex;
+  justify-content: center;
+}
+
+.imagenPerfil {
+  height: 80%;
+  width: 50vw;
+}
+
+.formularioRegistro {
+  margin-top: 1rem;
+}
+
+.botonesTrajeta {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.sectionPublicaciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.divPublicaciones {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+  margin-top: 1rem;
+  border-radius: 10px;
+  height: 75vh;
+  width: 75vw;
+  border: black solid 2px;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.renderSeccionDetalle {
+  margin-top: 2rem;
+}
+
+.seccionDetalle {
+  border-radius: 15px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+  border: black solid 2px;
+
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.imagenDetalle {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  height: 100%;
+}
+
+.datosDetalleAutos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.sectionFavoritos {
+  height: 100vh;
+  
+}
+
+.divFavoritos {
+  width: 60vw;
+  margin-left: 12%;
+  padding-top: 1rem;
+  border-radius: 10px;
+  min-height: 65vh;
+  width: 75vw;
+  border: black solid 2px;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin-bottom: 2rem;
+}
+
+.imagenFavoritos {
+  width: 15rem;
+  height: 15rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+@media only screen and (min-width: 400px) {
+  .contenedorMenu {
+    display: flex;
+    height: 5rem;
+    position: sticky;
+    top: 0;
+  }
+
+  .paginasItem {
+    margin-left: 4rem;
+  }
+
+  .inputBusquedaHome {
+    width: 30vw;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .imagencarrusel1 {
+    width: 1600px;
+    height: 400px;
+  }
+
+  .accesosDirectos {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 4rem;
+    width: 100vw;
+  }
+
+  .accesosDirectos button {
+    width: 25rem;
+    height: 8rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border: solid 2px black;
+    margin: 1rem;
+  }
+
+  .categorias {
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 1rem;
+  }
+
+  .categorias section {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .seccionCategorias {
+    display: flex;
+    gap: 3.5rem;
+  }
+
+  .contenedorInicio {
+    width: 25rem;
+    height: 25rem;
+    margin-top: 7rem;
+    border: solid #5684c2 2.5px;
+    border-radius: 15px;
+    padding: 2rem;
+  }
+
+  .formularioRegistro {
+    margin-top: 5rem;
+  }
+
+  .contenedorRegistro {
+    width: 60vw;
+
+    border: solid #5684c2 2.5px;
+    border-radius: 15px;
+    padding: 0.75rem;
+  }
+
+  .galeriaGrilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 2rem;
+  }
+  .perfilUsuario {
+    margin-top: 5rem;
+    width: 40vw;
+    height: 23rem;
+    border: solid #5684c2 2.5px;
+    border-radius: 15px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: x-large;
+  }
+
+  .listaPerfilUsuario {
+    display: flex;
+    justify-content: center;
+  }
+
+  .imagenPerfil {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .renderSeccionDetalle {
+    margin-top: 10rem;
+  }
+
+  .seccionDetalle {
+    border-radius: 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    border: black solid 2px;
+  }
+
+  .seccionDetalle div {
+    width: 50%;
+  }
+
+  .imagenDetalle {
+    width: 100%;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .datosDetalleAutos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .botonesDetalle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .sectionFavoritos {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20%;
+  }
+
+  .divFavoritos {
+    
+    margin-left: 12%;
+    padding-top: 1rem;
+    border-radius: 10px;
+    min-height: 70vh;
+    width: 60vw;
+    border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .cardFavoritos {
+    box-shadow: 10px 10px rgb(103, 103, 103);
+    max-width: 20rem;
+    max-height: 20rem;
+    border:black solid 2px; ;
+    margin-bottom: 1.5rem;
+
+  }
+
+  .imagenFavoritos {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .sectionPublicaciones {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20%;
+  }
+
+  .divPublicaciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    margin-top: 1rem;
+    margin-left: 12%;
+    border-radius: 10px;
+    height: 70vh;
+    width: 60vw;
+    border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103);
+  }
+
+
+}
