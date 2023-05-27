@@ -3,11 +3,13 @@ import PerfilUsuarioCard from "../components/PerfilUsuarioCard";
 import { Container, Row, Col } from "react-bootstrap";
 import { useContext } from "react";
 import { UserContext } from "../components/Context/UsuarioContext";
+import Footer from "../components/Footer";
 
 function PerfilUsuario() {
 
   const {user} = useContext(UserContext)
     return (
+      <>
         <Container fluid className="contenedorPerfil">
           <Row> 
           <Col sm={3} className="border-end border-dark">
@@ -22,6 +24,8 @@ function PerfilUsuario() {
        
        
         </Container>
+        <Footer />
+        </>
     )
 }
 

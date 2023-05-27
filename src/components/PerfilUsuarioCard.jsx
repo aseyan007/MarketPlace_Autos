@@ -62,7 +62,7 @@ function PerfilUsuarioCard() {
               className="text-decoration-none listaPerfilUsuario"
               to="/favoritos"
             >
-              <ListGroup.Item>
+              {/* <ListGroup.Item> */}
                 <Button
                   variant="dark"
                   style={{ width: "10rem", height: "2rem" }}
@@ -71,8 +71,8 @@ function PerfilUsuarioCard() {
                   <Badge bg="dark">{elementosEnFavoritos}</Badge>
                 </Button>
 
-                <span className="visually-hidden">unread messages</span>
-              </ListGroup.Item>
+                {/* <span className="visually-hidden">unread messages</span> */}
+              {/* </ListGroup.Item> */}
             </Link>
           </ListGroup>
         </Card>

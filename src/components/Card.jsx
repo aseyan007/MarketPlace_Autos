@@ -3,11 +3,14 @@ import { Card, Form } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { AutosContext } from "./Context/AutosContext";
 import { Link, useNavigate } from "react-router-dom";
-import Boton from "./components/Boton";
+import Boton from "./Boton";
 import corazonLleno from "../assets/icons/30571.png";
-import corazonVacio from "../assets/icons/corazon_borde.avif"
+import corazonVacio from "../assets/icons/corazon_borde.avif";
+import { UserContext } from "./Context/UsuarioContext";
+import Footer from "./Footer";
 
 function TarjetaAutos() {
+  const { user } = useContext(UserContext);
   const {
     autos,
     setAutos,
@@ -17,19 +20,10 @@ function TarjetaAutos() {
     setSearch,
     agregarAutoAlCarrito,
     autosFavoritos,
-    setAutosFavoritos
+    setAutosFavoritos,
   } = useContext(AutosContext);
   const [autoSeleccionado, setAutoSeleccionado] = useState("");
   const navigate = useNavigate();
-
-  // const renderDetalleAutoSeleccionado = () => {
-  //   navigate(`/auto/${autoSeleccionado}`);
-  // }
-
-  // const enviarAutossAlCarro = ({ id, marca, modelo, imgagen, precio }) => {
-  //   agregarAutoAlCarrito({ id, marca, modelo, imgagen, precio });
-  //   navigate("/carrito");
-  // };
 
   const enviarAutossAlCarro = (auto) => {
     agregarAutoAlCarrito(auto);
@@ -67,7 +61,6 @@ function TarjetaAutos() {
             className="mb-5 tarjeta"
             key={auto.id}
             style={{ width: "18rem" }}
-            
           >
             <div
               className="imagenGrilla"
@@ -76,32 +69,33 @@ function TarjetaAutos() {
                 height: "12rem",
                 backgroundImage: `url('${auto.imagen}')`,
               }}
-              // onClick={() => {
-              //   const foto = autosFiltrados[i];
-              //   const estadoActualDelLike = foto.liked;
-              //   if (estadoActualDelLike) foto.liked = false;
-              //   else foto.liked = true;
-              //   setAutosFiltrados([...autosFiltrados]);
-              // }}
-            >
-                          
-            </div>
-            <Card.Body>
-              <Card.Title className="meGustaCard">
-                {auto.marca} {auto.modelo}
-                <div className="corazon"  onClick={() => {
+              onClick={() => {
                 const foto = autosFiltrados[i];
                 const estadoActualDelLike = foto.liked;
                 if (estadoActualDelLike) foto.liked = false;
                 else foto.liked = true;
-                setAutosFavoritos([...autosFiltrados]);
-              }}>
-                {auto.liked ? (
-                  <img height="50" src={corazonLleno} alt="" />
-                ) : (
-                  <img height="50" src={corazonVacio} alt="" />
-                )}
-              </div>
+                setAutosFiltrados([...autosFiltrados]);
+              }}
+            ></div>
+            <Card.Body>
+              <Card.Title className="meGustaCard">
+                {auto.marca} {auto.modelo}
+                {user && <div
+                  className="corazon"
+                  onClick={() => {
+                    const foto = autosFiltrados[i];
+                    const estadoActualDelLike = foto.liked;
+                    if (estadoActualDelLike) foto.liked = false;
+                    else foto.liked = true;
+                    setAutosFavoritos([...autosFiltrados]);
+                  }}
+                >
+                  {auto.liked ? (
+                    <img height="50" src={corazonLleno} alt="" />
+                  ) : (
+                    <img height="50" src={corazonVacio} alt="" />
+                  )}
+                </div>}
               </Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
@@ -115,11 +109,11 @@ function TarjetaAutos() {
             </ListGroup>
             <Card.Body className="botonesTrajeta" key={auto.id}>
               <Link to={`detalle/${auto.id}`}>
-                <Boton contenido="Ver Auto" key={auto.id} />
+                <Boton contenido="Ver Auto" key={auto.id} style={{width: "7.1rem"}} />
               </Link>
               <Boton
-                contenido="Añadir al 🛒"
-                handleClick={enviarAutossAlCarro}
+                contenido="Añadir al 🛒" style={{width: "8rem"}}
+                handleClick={() => enviarAutossAlCarro(auto)}
               />
               {/* <buttononClick={() => enviarAutossAlCarro(auto)}  >
                 Añadir al 🛒
@@ -128,30 +122,9 @@ function TarjetaAutos() {
           </Card>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
 
 export default TarjetaAutos;
-
-// {fotos.map((photo, i) => {
-//   return (
-//     <div
-//       className="imagen"
-//       style={{ backgroundImage: `url('${photo.src})` }}
-//       onClick={() => {
-//         const foto = fotos[i];
-//         const estadoActualDelLike = foto.liked;
-//         if (estadoActualDelLike) foto.liked = false;
-//         else foto.liked = true;
-//         setFotos([...fotos]);
-//       }}
-//     >
-// <div className="corazon">
-// {photo.liked ? (
-//   <img height="50" src={corazonLleno} alt="" />
-//   ) : (
-//     <img height="50" src={corazonVacio} alt="" />
-//     )}
-//     </div>
-//     <p>{photo.description}</p>

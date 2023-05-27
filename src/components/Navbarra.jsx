@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./Context/UsuarioContext";
-import Boton from "./components/Boton";
+import Boton from "./Boton";
 
 function Navbarra() {
   const { logout, user } = useContext(UserContext);
@@ -18,8 +18,9 @@ function Navbarra() {
   return (
     <Navbar className="contenedorMenu bg-dark" expand="lg">
       <Container>
-        <Navbar.Brand className="text-light" href="#home">
-          React-Bootstrap
+        <Navbar.Brand className="text-light fs-4 logo" href="/">
+          Tu Medio Auto
+          <div className="medioAuto"></div>
         </Navbar.Brand>
         <Navbar.Toggle
           className="text-light bg-light mb-1"

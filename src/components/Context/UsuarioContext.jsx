@@ -106,8 +106,12 @@ const UserProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
+  const actualizarUserInLocalStorage = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
   return (
-    <UserContext.Provider value={{ user, login, logout, register }}>
+    <UserContext.Provider value={{ user, login, logout, register, actualizarUserInLocalStorage }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,6 +1,7 @@
 import Carrusel from '../components/Carrusel';
 import AccesosDirectos from '../components/AccesosDirectos';
 import Categorias from '../components/categorias';
+import Footer from '../components/Footer';
 
 
 function Home() {
@@ -12,6 +13,7 @@ function Home() {
       <Carrusel />
       <AccesosDirectos />
       <Categorias />
+      <Footer />
       </>
     )
   }

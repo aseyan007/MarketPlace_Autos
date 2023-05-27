@@ -58,6 +58,7 @@ function App() {
             path="/favoritos"
             element={!user ? <InicioSesion /> : <Favoritos />}
           />
+         
 
           <Route
             path="/carrito"

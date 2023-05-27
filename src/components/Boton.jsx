@@ -1,13 +1,13 @@
 import Button from "react-bootstrap/Button";
-import Badge from 'react-bootstrap/Badge';
 
 function Boton(props) {
   const contenido = props.contenido;
   const handleClick = props.handleClick;
+  const style = props.style;
 
   return (
     <>
-      <Button onClick={handleClick} variant="dark" style={{ width: "7.5rem" }}>
+      <Button onClick={handleClick} variant="dark" style={style}>
         {contenido}
       </Button>
     </>
@@ -15,17 +15,3 @@ function Boton(props) {
 }
 
 export default Boton;
-
-// import Badge from 'react-bootstrap/Badge';
-// import Button from 'react-bootstrap/Button';
-
-// function ButtonExample() {
-//   return (
-//     <Button variant="primary">
-//       Profile <Badge bg="secondary">9</Badge>
-//       <span className="visually-hidden">unread messages</span>
-//     </Button>
-//   );
-// }
-
-// export default ButtonExample;
