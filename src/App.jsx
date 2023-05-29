@@ -13,21 +13,17 @@ import GaleriaAutos from "./pages/GaleriaAutos";
 import DetalleAuto from "./pages/Detalle";
 import Carrito from "./pages/Carrito";
 import Publicaciones from "./pages/Publicaciones";
-import PerfilUsuario from "./pages/PerfilUsuario";
 import EditarPerfil from "./pages/EditarPerfil";
 import Favoritos from "./pages/Favoritos";
 import NuevoAuto from "./pages/NuevoAuto";
-
+import Sedan from "./pages/subcategorias/Sedan";
 
 function App() {
   const { user } = useContext(UserContext);
 
-
-
   return (
     <>
       <BrowserRouter>
-      
         <Navbarra />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,11 +34,8 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/galeriaAutos" element={<GaleriaAutos />} />
           <Route path="/galeriaAutos/detalle/:id" element={<DetalleAuto />} />
+
           <Route
-            path="/perfilUsuario"
-            element={!user ? <InicioSesion /> : <PerfilUsuario />}
-          />
-           <Route
             path="/nuevoAuto"
             element={!user ? <InicioSesion /> : <NuevoAuto />}
           />
@@ -58,17 +51,16 @@ function App() {
             path="/favoritos"
             element={!user ? <InicioSesion /> : <Favoritos />}
           />
-         
 
           <Route
             path="/carrito"
-            element={
-              !user ? <InicioSesion /> : <Carrito />
-              // <Navigate to={"/carrito"} />
-            }
+            element={!user ? <InicioSesion /> : <Carrito />}
+          />
+           <Route
+            path="/sedan"
+            element={<Sedan />}
           />
         </Routes>
-        
       </BrowserRouter>
     </>
   );

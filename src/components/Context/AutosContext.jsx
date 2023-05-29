@@ -40,7 +40,7 @@ function AutosProvider({ children }) {
   }, [autos]);
 
   const eliminarAuto = (id) => {
-    const autoEliminado = autos.filter((auto) => auto.id !== is);
+    const autoEliminado = autos.filter((auto) => auto.id !== id);
     setAutos(autoEliminado);
   }
 
@@ -49,10 +49,10 @@ function AutosProvider({ children }) {
   //   setProducts([product, ...products]);
   // };
 
-  const deleteProduct = (id) => {
-    const newProducts = products.filter((product) => product.id !== id);
-    setProducts(newProducts);
-  };
+  // const eliminarAuto = (id) => {
+  //   const newProducts = products.filter((product) => product.id !== id);
+  //   setProducts(newProducts);
+  // };
 
 
 

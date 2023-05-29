@@ -86,7 +86,7 @@ user: user.email
           .filter((auto) => auto.user === user.email)
           .map((auto) => (
             <article key={auto.id}>
-              <h2>{auto.marca}{auto.modelo}</h2>
+              <h2>{auto.marca} {auto.modelo}</h2>
               <button onClick={() => eliminarAuto(auto.id)}>
                 Eliminar
               </button>

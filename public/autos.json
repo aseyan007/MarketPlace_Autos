@@ -1,5 +1,5 @@
-[
-    {
+ [
+  {
       "id": 1,
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/dd/2018_Toyota_Corolla_%28ZRE172R%29_Ascent_sedan_%282018-08-27%29.jpg",
       "marca": "Toyota",
@@ -7,9 +7,10 @@
       "precio": 20000,
       "kilometraje": 50000,
       "año": 2018,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 2,
       "imagen": "https://control.motores502.com/public/img/mrm_catalogo/fotos/2020/204/2304.jpg",
       "marca": "Honda",
@@ -17,9 +18,10 @@
       "precio": 18000,
       "kilometraje": 60000,
       "año": 2017,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 3,
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/44/2019_Ford_Mustang_GT_5.0_facelift_Front.jpg",
       "marca": "Ford",
@@ -27,9 +29,10 @@
       "precio": 30000,
       "kilometraje": 30000,
       "año": 2019,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 4,
       "imagen": "https://www.asocivu.com/image/product/5fdcfa4855f88.jpg",
       "marca": "Chevrolet",
@@ -37,9 +40,10 @@
       "precio": 15000,
       "kilometraje": 70000,
       "año": 2016,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 5,
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/2017_Volkswagen_Golf_%285G_MY17%29_1.4_SE_TSI_hatchback_%282017-08-30%29.jpg/1280px-2017_Volkswagen_Golf_%285G_MY17%29_1.4_SE_TSI_hatchback_%282017-08-30%29.jpg",
       "marca": "Volkswagen",
@@ -47,9 +51,10 @@
       "precio": 17000,
       "kilometraje": 55000,
       "año": 2017,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 6,
       "imagen": "https://cloud.leparking.fr/2021/08/31/18/01/bmw-serie-3-2018-bmw-m3-f80-competion-pack-450ps-for-sale-in-kildare-for-74-950-on-donedeal-gris_8257133824.jpg",
       "marca": "BMW",
@@ -57,9 +62,10 @@
       "precio": 25000,
       "kilometraje": 40000,
       "año": 2018,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 7,
       "imagen": "https://www.rutamotor.com/wp-content/uploads/2018/10/DSCN9965.jpg",
       "marca": "Mercedes-Benz",
@@ -67,9 +73,10 @@
       "precio": 28000,
       "kilometraje": 35000,
       "año": 2019,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 8,
       "imagen": "https://picolio.auto123.com/auto123tv/images/zr/xo/Audi-A4-2017_001.JPG",
       "marca": "Audi",
@@ -77,9 +84,10 @@
       "precio": 22000,
       "kilometraje": 60000,
       "año": 2017,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 9,
       "imagen": "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2016/01/2016-Nissan-Sentra-SR-101.jpg",
       "marca": "Nissan",
@@ -87,9 +95,10 @@
       "precio": 16000,
       "kilometraje": 45000,
       "año": 2016,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 10,
       "imagen": "https://autosdeldorado.com/wp-content/uploads/2022/01/P1366117-min.jpg",
       "marca": "Hyundai",
@@ -97,9 +106,10 @@
       "precio": 19000,
       "kilometraje": 40000,
       "año": 2018,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 11,
       "imagen": "https://editorials.autotrader.ca/media/78174/2017-mazda3-gs-02-pw.jpg?anchor=center&mode=crop&width=1920&height=1080&rnd=131316241470570000",
       "marca": "Mazda",
@@ -107,9 +117,10 @@
       "precio": 21000,
       "kilometraje": 55000,
       "año": 2017,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 12,
       "imagen": "https://www.carscoops.com/wp-content/uploads/2018/07/55968fec-kia_sportage_000.jpg",
       "marca": "Kia",
@@ -117,9 +128,10 @@
       "precio": 23000,
       "kilometraje": 35000,
       "año": 2019,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "suv"
+  },
+  {
       "id": 13,
       "imagen": "https://static.motor.es/fotos-noticias/2018/04/prueba-subaru-impreza-2018-201845774_1.jpg",
       "marca": "Subaru",
@@ -127,9 +139,10 @@
       "precio": 20000,
       "kilometraje": 40000,
       "año": 2018,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 14,
       "imagen": "https://i.gaw.to/vehicles/photos/40/20/402092-2020-lexus-is.jpg",
       "marca": "Lexus",
@@ -137,9 +150,10 @@
       "precio": 32000,
       "kilometraje": 25000,
       "año": 2020,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 15,
       "imagen": "https://www.gottabemobile.com/wp-content/uploads/2019/03/2019-Volvo-XC60-Review-2.jpg",
       "marca": "Volvo",
@@ -147,9 +161,10 @@
       "precio": 28000,
       "kilometraje": 30000,
       "año": 2019,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "suv"
+  },
+  {
       "id": 16,
       "imagen": "https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2020-Range-Rover-Evoque-S-Trim.png",
       "marca": "Land Rover",
@@ -157,9 +172,10 @@
       "precio": 35000,
       "kilometraje": 20000,
       "año": 2020,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "suv"
+  },
+  {
       "id": 17,
       "imagen": "https://www.motortrend.com/uploads/sites/5/2019/06/2019-Jeep-Wrangler-Unlimited-Rubicon-front-three-quarter-1-1.jpg",
       "marca": "Jeep",
@@ -167,9 +183,10 @@
       "precio": 32000,
       "kilometraje": 30000,
       "año": 2019,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "4x4"
+  },
+  {
       "id": 18,
       "imagen": "https://cdn1.buyacar.co.uk/sites/buyacar/files/fiat-500-ftq65.png",
       "marca": "Fiat",
@@ -177,9 +194,10 @@
       "precio": 13000,
       "kilometraje": 50000,
       "año": 2016,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 19,
       "imagen": "https://www.rtautomotriz.com/images/GRACIA/Ext125700-1.jpg",
       "marca": "Peugeot",
@@ -187,9 +205,10 @@
       "precio": 18000,
       "kilometraje": 40000,
       "año": 2017,
-      "liked": false
-    },
-    {
+      "liked": false,
+      "categoria": "sedan"
+  },
+  {
       "id": 20,
       "imagen": "https://images.clickdealer.co.uk/vehicles/4557/4557467/large1/102816890.jpg",
       "marca": "Renault",
@@ -197,7 +216,8 @@
       "precio": 15000,
       "kilometraje": 55000,
       "año": 2016,
-      "liked": false
-    }
-  ]
-  
+      "liked": false,
+      "categoria": "sedan"
+  }
+]
+

@@ -5,9 +5,13 @@ import Container from "react-bootstrap/esm/Container";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../components/Context/UsuarioContext";
 import Swal from "sweetalert2";
+import { ValidacionesContext } from "../components/Context/ValidacionesContext";
 
 function InicioSesion() {
   const { login } = useContext(UserContext);
+  const { emailValido, validarEmail, passwordValida, validarPassword } =
+    useContext(ValidacionesContext);
+
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -33,6 +37,16 @@ function InicioSesion() {
 
     setEmail("");
     setPassword("");
+
+    if (!emailValido) {
+      Swal.fire("Ingresa un email válido");
+      return;
+    }
+
+    if (!passwordValida) {
+      Swal.fire("Ingresa una contraseña válida");
+      return;
+    }
   };
 
   return (
@@ -42,7 +56,10 @@ function InicioSesion() {
           <Form.Label className="h3 mb-5">¡Hola! Ingresa tu e‑mail </Form.Label>
           <Form.Control
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              validarEmail(e.target.value);
+            }}
             type="email"
             placeholder="Email"
           />
@@ -50,7 +67,10 @@ function InicioSesion() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Control
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              validarPassword(e.target.value);
+            }}
             type="password"
             placeholder="Contraseña"
           />

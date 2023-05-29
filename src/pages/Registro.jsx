@@ -1,14 +1,17 @@
+import React, { useContext, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/esm/Container";
-import { useContext, useState } from "react";
+import Container from "react-bootstrap/Container";
 import { UserContext } from "../components/Context/UsuarioContext";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { ValidacionesContext } from "../components/Context/ValidacionesContext";
 
 function Registro() {
   const { register } = useContext(UserContext);
+  const {emailValido, validarEmail, passwordValida, validarPassword} = useContext(ValidacionesContext)
   const navigate = useNavigate();
 
   const [nombre, setNombre] = useState("");
@@ -21,12 +24,19 @@ function Registro() {
   const [region, setRegion] = useState("");
   const [codigozip, setCodigozip] = useState("");
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (password !== repassword) {
-    //   return alert("no coinciden las contraseñas");
-    // }
+    if (!emailValido) {
+      Swal.fire("Ingresa un email válido");
+      return;
+    }
+
+    if (!passwordValida) {
+      Swal.fire("Ingresa una contraseña válida");
+      return;
+    }
 
     register({
       nombre,
@@ -42,6 +52,7 @@ function Registro() {
     });
     navigate("/");
   };
+
   return (
     <Form className="formularioRegistro" onSubmit={handleSubmit}>
       <Container className="contenedorRegistro">
@@ -53,6 +64,7 @@ function Registro() {
               placeholder="Nombre"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
+              required
             />
           </Col>
           <Col>
@@ -61,6 +73,7 @@ function Registro() {
               placeholder="Apellido"
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
+              required
             />
           </Col>
         </Row>
@@ -72,8 +85,16 @@ function Registro() {
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                validarEmail(e.target.value);
+              }}
+              isInvalid={!emailValido}
+              required
             />
+            <Form.Control.Feedback type="invalid">
+              Por favor, ingresa un email válido.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
@@ -82,22 +103,33 @@ function Registro() {
               type="password"
               placeholder="Contraseña"
               value={contraseña}
-              onChange={(e) => setContraseña(e.target.value)}
+              onChange={(e) => {
+                setContraseña(e.target.value);
+                validarPassword(e.target.value);
+              }}
+              isInvalid={!passwordValida}
+              required
             />
+            <Form.Control.Feedback type="invalid">
+              La contraseña debe contener al menos 6 caracteres, una letra mayúscula, una letra minúscula y un número.
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
         <Form.Group className="mb-3" controlId="formGridAddress1">
+          <Form.Label>Dirección</Form.Label>
           <Form.Control
-            placeholder="Direccion"
+            placeholder="Dirección"
             value={direccion}
             onChange={(e) => setDireccion(e.target.value)}
+            required
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formGridAddress2">
+          <Form.Label>Dirección 2</Form.Label>
           <Form.Control
-            placeholder="Direccion 2"
+            placeholder="Dirección 2"
             value={direccion2}
             onChange={(e) => setDireccion2(e.target.value)}
           />
@@ -110,6 +142,7 @@ function Registro() {
               type="text"
               value={ciudad}
               onChange={(e) => setCiudad(e.target.value)}
+              required
             />
           </Form.Group>
 
@@ -119,15 +152,18 @@ function Registro() {
               type="text"
               value={region}
               onChange={(e) => setRegion(e.target.value)}
+              required
             />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Codigo zip</Form.Label>
+            <Form.Label>Código Zip</Form.Label>
             <Form.Control
               type="number"
+              min="3"
               value={codigozip}
               onChange={(e) => setCodigozip(e.target.value)}
+              required
             />
           </Form.Group>
         </Row>
