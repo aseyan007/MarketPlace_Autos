@@ -30,32 +30,59 @@ function Navbarra() {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto paginas">
-            <NavLink to="/" className="paginasItem " onClick={() => setExpanded(false)}>
+            <NavLink
+              to="/"
+              className="paginasItem "
+              onClick={() => setExpanded(false)}
+            >
               Home
             </NavLink>
-            <NavLink to="/galeriaAutos" className="paginasItem " onClick={() => setExpanded(false)}>
+            <NavLink
+              to="/galeriaAutos"
+              className="paginasItem "
+              onClick={() => setExpanded(false)}
+            >
               Galeria/Autos
             </NavLink>
             {!user ? (
               <>
-                <NavLink to="/registro" className="paginasItem " onClick={() => setExpanded(false)}>
+                <NavLink
+                  to="/registro"
+                  className="paginasItem "
+                  onClick={() => setExpanded(false)}
+                >
                   Registrarse
                 </NavLink>
-                <NavLink to="/iniciarSesion" className="paginasItem "onClick={() => setExpanded(false)}>
+                <NavLink
+                  to="/iniciarSesion"
+                  className="paginasItem "
+                  onClick={() => setExpanded(false)}
+                >
                   Iniciar sesion
                 </NavLink>
               </>
             ) : (
               <>
-                <NavLink to="/publicaciones" className="paginasItem " onClick={() => setExpanded(false)}>
+                <NavLink
+                  to="/publicaciones"
+                  className="paginasItem "
+                  onClick={() => setExpanded(false)}
+                >
                   Perfil
                 </NavLink>
-                <NavLink to="/carrito" className="paginasItem " onClick={() => setExpanded(false)}>
+                <NavLink
+                  to="/carrito"
+                  className="paginasItem "
+                  onClick={() => setExpanded(false)}
+                >
                   🛒
                 </NavLink>
-                <NavLink to="/" className="paginasItem " onClick={() => setExpanded(false)}>
-                <Boton handleClick={logoutUser} contenido="Salir" />
-
+                <NavLink
+                  to="/"
+                  className="paginasItem "
+                  onClick={() => setExpanded(false)}
+                >
+                  <Boton handleClick={logoutUser} contenido="Salir" />
                 </NavLink>
               </>
             )}

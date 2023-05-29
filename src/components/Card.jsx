@@ -80,22 +80,24 @@ function TarjetaAutos() {
             <Card.Body>
               <Card.Title className="meGustaCard">
                 {auto.marca} {auto.modelo}
-                {user && <div
-                  className="corazon"
-                  onClick={() => {
-                    const foto = autosFiltrados[i];
-                    const estadoActualDelLike = foto.liked;
-                    if (estadoActualDelLike) foto.liked = false;
-                    else foto.liked = true;
-                    setAutosFavoritos([...autosFiltrados]);
-                  }}
-                >
-                  {auto.liked ? (
-                    <img height="50" src={corazonLleno} alt="" />
-                  ) : (
-                    <img height="50" src={corazonVacio} alt="" />
-                  )}
-                </div>}
+                {user && (
+                  <div
+                    className="corazon"
+                    onClick={() => {
+                      const foto = autosFiltrados[i];
+                      const estadoActualDelLike = foto.liked;
+                      if (estadoActualDelLike) foto.liked = false;
+                      else foto.liked = true;
+                      setAutosFavoritos([...autosFiltrados]);
+                    }}
+                  >
+                    {auto.liked ? (
+                      <img height="50" src={corazonLleno} alt="" />
+                    ) : (
+                      <img height="50" src={corazonVacio} alt="" />
+                    )}
+                  </div>
+                )}
               </Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
@@ -109,10 +111,15 @@ function TarjetaAutos() {
             </ListGroup>
             <Card.Body className="botonesTrajeta" key={auto.id}>
               <Link to={`detalle/${auto.id}`}>
-                <Boton contenido="Ver Auto" key={auto.id} style={{width: "7.1rem"}} />
+                <Boton
+                  contenido="Ver Auto"
+                  key={auto.id}
+                  style={{ width: "7.1rem" }}
+                />
               </Link>
               <Boton
-                contenido="Añadir al 🛒" style={{width: "8rem"}}
+                contenido="Añadir al 🛒"
+                style={{ width: "8rem" }}
                 handleClick={() => enviarAutossAlCarro(auto)}
               />
               {/* <buttononClick={() => enviarAutossAlCarro(auto)}  >

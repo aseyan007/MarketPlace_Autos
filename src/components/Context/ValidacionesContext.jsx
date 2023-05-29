@@ -10,20 +10,17 @@ function ValidacionesProvider({ children }) {
     if (email.length < 7 || /\s/g.test(email)) {
       setEmailValido(false);
     } else {
-      const partes = email.split('@');
+      const partes = email.split("@");
       const nombreUsuario = partes[0];
-      const dominioExtension = partes[1].split('.');
+      const dominioExtension = partes[1].split(".");
       const dominio = dominioExtension[0];
       const extension = dominioExtension[1];
-      
-      if (
-          nombreUsuario.length < 3 ||
-          dominio.length < 3 ||
-          extension.length < 2 
-        //   ||  !(extension === undefined || extension === null || extension === '' || !extension.includes('.'))
 
-        //   !extension.includes('.')
-        ) {
+      if (
+        nombreUsuario.length < 3 ||
+        dominio.length < 3 ||
+        extension.length < 2
+      ) {
         setEmailValido(false);
       } else {
         setEmailValido(true);
@@ -55,5 +52,3 @@ function ValidacionesProvider({ children }) {
 }
 
 export default ValidacionesProvider;
-
-

@@ -1,65 +1,3 @@
-// import React, { createContext, useState, useEffect } from "react";
-
-// export const UsuarioContext = createContext();
-
-// const obtenerUsuarios = async () => {
-//   const res = await fetch("/usuarios.json");
-//   const usuarios = await res.json();
-//   return usuarios;
-// };
-
-// const estadoInicialDelUsuario = localStorage.getItem("usuario")
-//   ? JSON.parse(localStorage.getItem("usuario"))
-//   : null;
-
-// const UsuarioProvider = ({ children }) => {
-//   const [usuario, setUsuario] = useState(estadoInicialDelUsuario);
-
-//   useEffect(() => {
-//     if (usuario) {
-//       localStorage.setItem("usuario", JSON.stringify(usuario));
-//     }
-//   }, [usuario]);
-
-//   const inicioSesion = async (email, password) => {
-//     const usuarios = await obtenerUsuarios();
-//     const usuarioDatos = usuarios.find(
-//       (item) => item.email === email && item.password === password
-//     );
-//     if (usuarioDatos) {
-//       setUsuario(usuarioDatos);
-//     } else {
-//       setUsuario(null);
-//     }
-
-//     return usuarioDatos;
-//   };
-
-//   const registro = (usuario) => {
-//     setUsuario(usuario);
-//   };
-
-//    const salir = () => {
-//     setUsuario(null);
-//     localStorage.removeItem("usuario");
-//   };
-
-//   const estadoGlobalUsuarios = {
-//     usuario,
-//     registro,
-//     salir,
-//     inicioSesion,
-//   };
-
-//   return (
-//     <UsuarioContext.Provider value={estadoGlobalUsuarios}>
-//       {children}
-//     </UsuarioContext.Provider>
-//   );
-// };
-
-// export default UsuarioProvider;
-
 import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
@@ -108,10 +46,12 @@ const UserProvider = ({ children }) => {
 
   const actualizarUserInLocalStorage = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
-  }
+  };
 
   return (
-    <UserContext.Provider value={{ user, login, logout, register, actualizarUserInLocalStorage }}>
+    <UserContext.Provider
+      value={{ user, login, logout, register, actualizarUserInLocalStorage }}
+    >
       {children}
     </UserContext.Provider>
   );

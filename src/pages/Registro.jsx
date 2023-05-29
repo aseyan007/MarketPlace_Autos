@@ -1,9 +1,5 @@
 import React, { useContext, useState } from "react";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
+import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import { UserContext } from "../components/Context/UsuarioContext";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

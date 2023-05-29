@@ -11,7 +11,6 @@ function PerfilUsuarioCard() {
   const { autosFavoritos } = useContext(AutosContext);
 
   const favoritos = autosFavoritos.filter((auto) => auto.liked === true);
-  console.log(favoritos);
 
   const elementosEnFavoritos = favoritos.length;
 
@@ -53,15 +52,20 @@ function PerfilUsuarioCard() {
                 </Button>
               </Link>
             </ListGroup.Item>
-            <Link
-              className="text-decoration-none listaPerfilUsuario"
-              to="/favoritos"
-            >
-              <Button variant="dark" style={{ width: "10rem", height: "2rem" }}>
-                Favoritos
-                <Badge bg="dark">{elementosEnFavoritos}</Badge>
-              </Button>
-            </Link>
+            <ListGroup.Item>
+              <Link
+                className="text-decoration-none listaPerfilUsuario"
+                to="/favoritos"
+              >
+                <Button
+                  variant="dark"
+                  style={{ width: "10rem", height: "2rem" }}
+                >
+                  Favoritos
+                  <Badge bg="dark">{elementosEnFavoritos}</Badge>
+                </Button>
+              </Link>
+            </ListGroup.Item>
           </ListGroup>
         </Card>
       </Container>

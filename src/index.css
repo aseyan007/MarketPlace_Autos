@@ -169,8 +169,7 @@ a.active {
 }
 
 .sectionCarrito {
-  /* display: flex;
-  flex-direction: column; */
+  margin: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-radius: 10px;
@@ -201,7 +200,6 @@ a.active {
   gap: 1rem;
   width: 8rem;
   height: 8rem;
-
 }
 
 .contenedorRegistro {
@@ -260,7 +258,6 @@ a.active {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .divPublicaciones {
   display: grid;
@@ -272,7 +269,6 @@ a.active {
   width: 75vw;
   border: black solid 2px;
   box-shadow: 10px 10px rgb(103, 103, 103);
-  
 }
 
 .renderSeccionDetalle {
@@ -317,7 +313,7 @@ a.active {
 
 .divFavoritos {
   width: 60vw;
-  margin-left: 12%;
+  margin-left: 8%;
   padding-top: 1rem;
   border-radius: 10px;
   min-height: 65vh;
@@ -329,7 +325,6 @@ a.active {
   justify-items: center;
   margin-bottom: 2rem;
   /* overflow: scroll; */
-  
 }
 
 .imagenFavoritos {
@@ -573,14 +568,16 @@ a.active {
   .sectionFavoritos {
     display: flex;
     min-height: 100%;
+
     flex-direction: column;
     align-items: center;
     margin-left: 20%;
-    overflow:unset;
+    overflow: unset;
   }
 
   .divFavoritos {
     margin-left: 12%;
+
     padding-top: 1rem;
     border-radius: 10px;
     min-height: 70vh;
@@ -592,6 +589,15 @@ a.active {
     justify-items: center;
     margin-bottom: 2rem;
     overflow: scroll;
+  }
+
+  #divFavoritos {
+    min-height: 70vh;
+    width: 65vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cardFavoritos {
@@ -631,8 +637,10 @@ a.active {
     box-shadow: 10px 10px rgb(103, 103, 103);
   }
   .sectionCarrito {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* grid-template-columns: 1fr; */
     margin-top: 2rem;
     margin-inline: auto;
     margin-bottom: 2rem;

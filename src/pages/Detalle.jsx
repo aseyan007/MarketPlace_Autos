@@ -52,7 +52,6 @@ function DetalleAuto() {
                   contenido="Añadir al 🛒"
                   style={{ width: "8rem" }}
                   handleClick={() => enviarAutosAlCarro(auto)}
-                  // handleClick={enviarAutosAlCarro}
                 />
               </div>
             </div>

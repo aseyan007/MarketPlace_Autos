@@ -1,7 +1,5 @@
 import { useContext, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/esm/Container";
+import { Button, Form, Container } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../components/Context/UsuarioContext";
 import Swal from "sweetalert2";
@@ -31,7 +29,6 @@ function InicioSesion() {
         icon: "error",
         title: "Datos incorrectos...",
         text: "Intentalo nuevamente!",
-        // footer: '<a href="">Why do I have this issue?</a>'
       });
     }
 

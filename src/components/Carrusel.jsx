@@ -1,9 +1,8 @@
-import Carousel from 'react-bootstrap/Carousel';
-import Container from 'react-bootstrap/esm/Container';
+import Carousel from "react-bootstrap/Carousel";
 
 function Carrusel() {
   return (
-    <Carousel className='carrusel'>
+    <Carousel className="carrusel">
       <Carousel.Item>
         <img
           className="d-block w-100 imagencarrusel1"
@@ -15,7 +14,7 @@ function Carrusel() {
           <p>Conoce nuestros concesionarios destacados.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item > 
+      <Carousel.Item>
         <img
           className="d-block w-100 imagencarrusel1"
           src="https://www.motociclismo.es/uploads/static/motociclismo/upload/images/gallery/5ec1708b0de694f0248dff69/5ec171b20ee694300f8e0c2c-los-concesionarios-de-motos-abren-todos-el-lunes-18-de-mayo.jpg"
@@ -27,7 +26,7 @@ function Carrusel() {
           <p>Encontraras la ideal para ti.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item >
+      <Carousel.Item>
         <img
           className="d-block w-100 imagencarrusel1"
           src="https://www.caracteristicas.pro/wp-content/uploads/2023/01/yates.jpg"
@@ -36,9 +35,7 @@ function Carrusel() {
 
         <Carousel.Caption>
           <h3>NAVEGAR</h3>
-          <p>
-           Un sueño a tu alcance.
-          </p>
+          <p>Un sueño a tu alcance.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

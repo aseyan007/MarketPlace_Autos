@@ -56,10 +56,7 @@ function App() {
             path="/carrito"
             element={!user ? <InicioSesion /> : <Carrito />}
           />
-           <Route
-            path="/sedan"
-            element={<Sedan />}
-          />
+          <Route path="/sedan" element={<Sedan />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -8,59 +8,40 @@ function AutosProvider({ children }) {
   const [search, setSearch] = useState("");
   const [autosFiltrados, setAutosFiltrados] = useState([]);
   const [carrito, setCarrito] = useState([]);
+  const [publicaciones, setPublicaciones] = useState([]);
 
   const getAutos = async () => {
     try {
-      const response = await fetch("/autos.json")
+      const response = await fetch("/autos.json");
       if (!response.ok) {
-        alert("Error al obtener los datos de autos") 
+        alert("Error al obtener los datos de autos");
       }
       const data = await response.json();
       setAutos(data);
       setAutosFiltrados(data);
       setAutosFavoritos(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   useEffect(() => {
-   if (autos.length === 0){ 
-    getAutos()
-   };
+    if (autos.length === 0) {
+      getAutos();
+    }
   }, []);
-
-  const crearNuevoAuto = (auto) => {
-    const nuevoAuto = [auto, ...autos]
-
-  }
 
   useEffect(() => {
     localStorage.setItem("autos", JSON.stringify(autos));
   }, [autos]);
 
+  const crearNuevoAuto = (auto) => {
+    setAutos([auto, ...autos]);
+  };
   const eliminarAuto = (id) => {
     const autoEliminado = autos.filter((auto) => auto.id !== id);
     setAutos(autoEliminado);
-  }
-
-
-  // const createProduct = (product) => {
-  //   setProducts([product, ...products]);
-  // };
-
-  // const eliminarAuto = (id) => {
-  //   const newProducts = products.filter((product) => product.id !== id);
-  //   setProducts(newProducts);
-  // };
-
-
-
-
-
-
-
-
+  };
 
   const agregarAutoAlCarrito = (auto) => {
     const findID = carrito.find((item) => auto.id === item.id);
@@ -74,10 +55,24 @@ function AutosProvider({ children }) {
 
       return setCarrito(autosEnCarrito);
     }
-    
 
     setCarrito([...carrito, { ...auto, cantidad: 1 }]);
-    
+  };
+
+  const enviarNuevoAutoAPublicaciones = (auto) => {
+    const findID = publicaciones.find((item) => auto.id === item.id);
+
+    if (findID) {
+      const autoNuevoEnPublicaciones = publicaciones.map((item) =>
+        item.id === findID.id
+          ? { ...auto, cantidad: findID.cantidad + 1 }
+          : item
+      );
+
+      return setPublicaciones(autoNuevoEnPublicaciones);
+    }
+
+    setPublicaciones([...publicaciones, { ...auto, cantidad: 1 }]);
   };
 
   const estadoGlobalAutos = {
@@ -93,14 +88,17 @@ function AutosProvider({ children }) {
     autosFavoritos,
     setAutosFavoritos,
     crearNuevoAuto,
-    eliminarAuto
+    eliminarAuto,
+    publicaciones,
+    setPublicaciones,
+    enviarNuevoAutoAPublicaciones,
   };
 
   return (
     <AutosContext.Provider value={estadoGlobalAutos}>
       {children}
     </AutosContext.Provider>
-  )
+  );
 }
 
-export default AutosProvider
+export default AutosProvider;
