@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Boton from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
 
-function Sedan() {
+function Pickup() {
   const { user } = useContext(UserContext);
   const { autos, agregarAutoAlCarrito } = useContext(AutosContext);
   const [autosFiltrados, setAutosFiltrados] = useState([]);
@@ -18,7 +18,7 @@ function Sedan() {
 
   const filtrarAutos = () => {
     const autosFiltradosPorCategoria = autos.filter((auto) => {
-      return auto.categoria.toLowerCase() === "sedan";
+      return auto.categoria.toLowerCase() === "pickup";
     });
     setAutosFiltrados(autosFiltradosPorCategoria);
     setAutosFiltradosSedan(autosFiltradosPorCategoria);
@@ -61,7 +61,11 @@ function Sedan() {
       </Form>
       <div className="galeriaGrilla">
         {autosFiltrados.map((auto) => (
-          <Card className="mb-5 tarjeta" key={auto.id} style={{ width: "18rem" }}>
+          <Card
+            className="mb-5 tarjeta"
+            key={auto.id}
+            style={{ width: "18rem" }}
+          >
             <div
               className="imagenGrilla"
               style={{
@@ -94,8 +98,8 @@ function Sedan() {
                 )}
               </Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -124,4 +128,4 @@ function Sedan() {
   );
 }
 
-export default Sedan;
+export default Pickup;

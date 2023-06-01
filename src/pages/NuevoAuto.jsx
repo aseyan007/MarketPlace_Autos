@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../components/Context/UsuarioContext";
 import { AutosContext } from "../components/Context/AutosContext";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
@@ -39,55 +39,78 @@ function NuevoAuto() {
     navigate("/publicaciones");
   };
 
+  const formularioValido = marca && modelo && precio && kilometraje && año;
+
   return (
     <>
-      <Container fluid className="contenedorPerfil">
-        <Row>
-          <Col sm={3}></Col>
-          <Col sm={7}>
-            <Container>
-              <section>
-                <div>
-                  <h1>Bienvenido: {user.nombre}</h1>
-                  <form onSubmit={handleSubmit}>
-                    <input
-                      type="text"
-                      placeholder="marca"
-                      value={marca}
-                      onChange={(e) => setMarca(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="modelo"
-                      value={modelo}
-                      onChange={(e) => setModelo(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="precio"
-                      value={precio}
-                      onChange={(e) => setPrecio(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="kilometraje"
-                      value={kilometraje}
-                      onChange={(e) => setKilometraje(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      placeholder="año"
-                      value={año}
-                      onChange={(e) => setAño(e.target.value)}
-                    />
-                    <button type="submit">Agregar</button>
-                  </form>
-                </div>
-              </section>
-            </Container>
-          </Col>
-        </Row>
+      <Container className="contenedorNuevoAuto">
+        <h1 className="text-center">Publica tu Auto</h1>
+        <Container className="sectionNuevoAuto">
+          <Form onSubmit={handleSubmit} className="formularioNuevoAuto">
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Marca"
+                  value={marca}
+                  onChange={(e) => setMarca(e.target.value)}
+                />
+              </Col>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Modelo"
+                  value={modelo}
+                  onChange={(e) => setModelo(e.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Precio"
+                  value={precio}
+                  onChange={(e) => setPrecio(e.target.value)}
+                />
+              </Col>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Kilometraje"
+                  value={kilometraje}
+                  onChange={(e) => setKilometraje(e.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Año"
+                  value={año}
+                  onChange={(e) => setAño(e.target.value)}
+                />
+              </Col>
+              <Col>
+                <Form.Group controlId="formFileSm">
+                  <Form.Control type="file" size="mdd" />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Button
+              className="text-center"
+              type="submit"
+              variant="dark"
+              style={{ width: "10rem" }}
+              disabled= {!formularioValido}
+            >
+              Agregar
+            </Button>
+          </Form>
+        </Container>
       </Container>
+
       <Footer />
     </>
   );

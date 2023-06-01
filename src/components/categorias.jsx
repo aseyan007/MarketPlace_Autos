@@ -5,6 +5,15 @@ import { AutosContext } from "./Context/AutosContext";
 import { Link, useNavigate } from "react-router-dom";
 
 function Categorias() {
+  // const navigate = useNavigate();
+
+  // const enviarASedan = () => {
+  //   navigate("/sedan")
+  // };
+
+  // const enviarA4x4 = () => {
+  //   navigate("/4x4")
+  // }
   return (
     <>
       <Container className="categorias">
@@ -17,20 +26,28 @@ function Categorias() {
             </Link>
           </div>
           <div>
-            <Button className="botonCamioneta" variant="light"></Button>{" "}
-            <p className="vehiculo">Pick-up</p>
+            <Link to="/pickup">
+              <Button className="botonCamioneta" variant="light"></Button>{" "}
+              <p className="vehiculo">Pick-up</p>
+            </Link>
           </div>
           <div>
-            <Button className="boton4x4" variant="light"></Button>{" "}
-            <p className="vehiculo">4 X 4</p>
+            <Link to="/4x4">
+              <Button className="boton4x4" variant="light"></Button>{" "}
+              <p className="vehiculo">4 X 4</p>
+            </Link>
           </div>
           <div>
-            <Button className="botonSuv" variant="light"></Button>{" "}
-            <p className="vehiculo">Suv</p>
+            <Link to="/suv">
+              <Button className="botonSuv" variant="light"></Button>{" "}
+              <p className="vehiculo">Suv</p>
+            </Link>
           </div>
           <div>
-            <Button className="botonMoto" variant="light"></Button>{" "}
-            <p className="vehiculo">Motos</p>
+            <Link to="/moto">
+              <Button className="botonMoto" variant="light"></Button>{" "}
+              <p className="vehiculo">Motos</p>
+            </Link>
           </div>
         </section>
       </Container>

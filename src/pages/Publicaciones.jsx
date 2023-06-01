@@ -11,7 +11,7 @@ import { AutosContext } from "../components/Context/AutosContext";
 function Publicaciones() {
   const { publicaciones, autos } = useContext(AutosContext);
   const params = useParams();
-  //  const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const enviarAAutoNuevo = () => {
     navigate("/nuevoAuto");

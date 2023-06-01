@@ -62,7 +62,9 @@ function PerfilUsuarioCard() {
                   style={{ width: "10rem", height: "2rem" }}
                 >
                   Favoritos
-                  <Badge bg="dark">{elementosEnFavoritos}</Badge>
+                  <Badge bg="dark" style={{ marginLeft: "1rem" }}>
+                    {elementosEnFavoritos}
+                  </Badge>
                 </Button>
               </Link>
             </ListGroup.Item>

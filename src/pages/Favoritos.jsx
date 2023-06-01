@@ -44,18 +44,21 @@ function Favoritos() {
                           style={{ backgroundImage: `url('${item.imagen}')` }}
                         >
                           {item.liked ? (
-                            <Button
+                            <Boton
                               variant="dark"
-                              className="rounded-circle m-2 fw-bold"
-                              onClick={() => deleteProduct(item.id)}
-                            >
-                              X
-                            </Button>
+                              style={{ height: "35px", width: "35px" }}
+                              className="botonFavoritos"
+                              handleClick={() => {
+                                // enviarAutosAlCarro(item);
+                                deleteProduct(item.id);
+                              }}
+                              contenido="x"
+                            />
                           ) : null}
                           <Boton
                             variant="dark"
                             style={{ height: "35px", width: "35px" }}
-                            className="rounded-circle fw-bold"
+                            className="botonFavoritos"
                             handleClick={() => {
                               enviarAutosAlCarro(item);
                               deleteProduct(item.id);

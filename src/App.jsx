@@ -17,6 +17,10 @@ import EditarPerfil from "./pages/EditarPerfil";
 import Favoritos from "./pages/Favoritos";
 import NuevoAuto from "./pages/NuevoAuto";
 import Sedan from "./pages/subcategorias/Sedan";
+import Auto4x4 from "./pages/subcategorias/Auto4x4";
+import Suv from "./pages/subcategorias/Suv";
+import Pickup from "./pages/subcategorias/Pickup";
+import Moto from "./pages/subcategorias/Moto";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -57,6 +61,10 @@ function App() {
             element={!user ? <InicioSesion /> : <Carrito />}
           />
           <Route path="/sedan" element={<Sedan />} />
+          <Route path="/4x4" element={<Auto4x4 />} />
+          <Route path="/suv" element={<Suv />} />
+          <Route path="/pickup" element={<Pickup />} />
+          <Route path="/moto" element={<Moto />} />
         </Routes>
       </BrowserRouter>
     </>

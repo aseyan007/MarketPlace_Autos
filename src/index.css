@@ -421,6 +421,31 @@ a.active {
   background-position: center;
 }
 
+.contenedorNuevoAuto {
+  margin-top: 2rem;
+  margin-inline: auto;
+}
+
+.sectionNuevoAuto {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  min-height: 70vh;
+  width: 75vw;
+  border: black solid 2px;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+}
+
+.formularioNuevoAuto {
+  width: 90%;
+  min-height: 50vh;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 400px) {
   .contenedorMenu {
     display: flex;
@@ -577,7 +602,6 @@ a.active {
 
   .divFavoritos {
     margin-left: 12%;
-
     padding-top: 1rem;
     border-radius: 10px;
     min-height: 70vh;
@@ -593,14 +617,16 @@ a.active {
 
   #divFavoritos {
     min-height: 70vh;
-    width: 65vw;
-
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .cardFavoritos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-shadow: 10px 10px rgb(103, 103, 103);
     max-width: 15rem;
     max-height: 15rem;
@@ -609,11 +635,20 @@ a.active {
   }
 
   .imagenFavoritos {
+    display: flex;
+    justify-content: center;
+    gap: 9rem;
+    padding-top: 1rem;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 15rem;
     height: 15rem;
+  }
+
+  .botonFavoritos {
+    border: solid white 1px;
+    border-radius: 50%;
   }
 
   .sectionPublicaciones {
@@ -636,6 +671,32 @@ a.active {
     border: black solid 2px;
     box-shadow: 10px 10px rgb(103, 103, 103);
   }
+  .contenedorNuevoAuto {
+    height: 100%;
+    margin-top: 2rem;
+    width: 70%;
+  }
+
+  .sectionNuevoAuto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5rem;
+    border-radius: 10px;
+    min-height: 50vh;
+    width: 50vw;
+    border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103);
+  }
+
+  .formularioNuevoAuto {
+    width: 80%;
+    min-height: 40vh;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+  }
+
   .sectionCarrito {
     display: flex;
     flex-direction: column;
