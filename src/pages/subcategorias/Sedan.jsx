@@ -7,6 +7,7 @@ import { Card, ListGroup, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Boton from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function Sedan() {
   const { user } = useContext(UserContext);
@@ -61,7 +62,11 @@ function Sedan() {
       </Form>
       <div className="galeriaGrilla">
         {autosFiltrados.map((auto) => (
-          <Card className="mb-5 tarjeta" key={auto.id} style={{ width: "18rem" }}>
+          <Card
+            className="mb-5 tarjeta"
+            key={auto.id}
+            style={{ width: "18rem" }}
+          >
             <div
               className="imagenGrilla"
               style={{
@@ -94,8 +99,8 @@ function Sedan() {
                 )}
               </Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -120,6 +125,7 @@ function Sedan() {
           </Card>
         ))}
       </div>
+        <Footer />
     </>
   );
 }

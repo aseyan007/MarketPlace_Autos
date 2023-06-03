@@ -19,7 +19,7 @@ function Favoritos() {
     setAutosFavoritos(newProducts);
   };
 
-  const enviarAutosAlCarro = (auto) => {
+   const enviarAutosAlCarro = (auto) => {
     agregarAutoAlCarrito(auto);
     navigate("/carrito");
   };
@@ -46,7 +46,7 @@ function Favoritos() {
                           {item.liked ? (
                             <Boton
                               variant="dark"
-                              style={{ height: "35px", width: "35px" }}
+                              style={{ height: "2.3rem", width: "2.5rem" , color:"white", borderRadius: "50%", fontWeight: "bolder"}}
                               className="botonFavoritos"
                               handleClick={() => {
                                 // enviarAutosAlCarro(item);
@@ -57,7 +57,7 @@ function Favoritos() {
                           ) : null}
                           <Boton
                             variant="dark"
-                            style={{ height: "35px", width: "35px" }}
+                            style={{ height: "2.3rem", width: "2.5rem", borderRadius: "50%",  paddingRight: "1rem" }}
                             className="botonFavoritos"
                             handleClick={() => {
                               enviarAutosAlCarro(item);

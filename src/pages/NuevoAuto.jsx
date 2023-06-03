@@ -103,7 +103,7 @@ function NuevoAuto() {
               type="submit"
               variant="dark"
               style={{ width: "10rem" }}
-              disabled= {!formularioValido}
+              disabled={!formularioValido}
             >
               Agregar
             </Button>

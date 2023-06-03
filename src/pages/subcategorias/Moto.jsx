@@ -7,6 +7,7 @@ import { Card, ListGroup, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Boton from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function Moto() {
   const { user } = useContext(UserContext);
@@ -15,6 +16,11 @@ function Moto() {
   const [autosFiltradosSedan, setAutosFiltradosSedan] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const navigate = useNavigate();
+  const navigatePublicar = useNavigate();
+
+  const enviarAAutoNuevo = () => {
+    navigatePublicar("/nuevoAuto");
+  };
 
   const filtrarAutos = () => {
     const autosFiltradosPorCategoria = autos.filter((auto) => {
@@ -127,9 +133,18 @@ function Moto() {
             </Card>
           ))
         ) : (
-          <h1>no hay motos</h1>
+          <div className="divNoHayPublicaciones">
+            <h1 className="display-1">No hay Motos aun!!!</h1>
+            <Link to="/nuevoAuto">
+              <Boton
+                contenido="Publicar"
+                handleClick={() => enviarAAutoNuevo()}
+              />
+            </Link>
+          </div>
         )}
       </div>
+      <Footer />
     </>
   );
 }

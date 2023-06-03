@@ -7,6 +7,7 @@ import { Card, ListGroup, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Boton from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function Suv() {
   const { user } = useContext(UserContext);
@@ -124,6 +125,7 @@ function Suv() {
           </Card>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

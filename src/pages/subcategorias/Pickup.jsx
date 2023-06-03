@@ -7,6 +7,7 @@ import { Card, ListGroup, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Boton from "../../components/Boton";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function Pickup() {
   const { user } = useContext(UserContext);
@@ -60,70 +61,85 @@ function Pickup() {
         </Form.Group>
       </Form>
       <div className="galeriaGrilla">
-        {autosFiltrados.map((auto) => (
-          <Card
-            className="mb-5 tarjeta"
-            key={auto.id}
-            style={{ width: "18rem" }}
-          >
-            <div
-              className="imagenGrilla"
-              style={{
-                width: "18rem",
-                height: "12rem",
-                backgroundImage: `url('${auto.imagen}')`,
-              }}
-              onClick={() => {
-                auto.liked = !auto.liked;
-                setAutosFiltrados([...autosFiltrados]);
-              }}
-            ></div>
-            <Card.Body>
-              <Card.Title className="meGustaCard">
-                {auto.marca} {auto.modelo}
-                {user && (
-                  <div
-                    className="corazon"
-                    onClick={() => {
-                      auto.liked = !auto.liked;
-                      setAutosFiltrados([...autosFiltrados]);
-                    }}
-                  >
-                    {auto.liked ? (
-                      <img height="50" src={corazonLleno} alt="" />
-                    ) : (
-                      <img height="50" src={corazonVacio} alt="" />
-                    )}
-                  </div>
-                )}
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item>Precio: $ {auto.precio}</ListGroup.Item>
-              <ListGroup.Item>Año: {auto.año}</ListGroup.Item>
-              <ListGroup.Item>Recorrido: {auto.kilometraje} km</ListGroup.Item>
-            </ListGroup>
-            <Card.Body className="botonesTrajeta" key={auto.id}>
-              <Link to={`detalle/${auto.id}`}>
+        {autosFiltrados.length > 0 ? (
+          autosFiltrados.map((auto) => (
+            <Card
+              className="mb-5 tarjeta"
+              key={auto.id}
+              style={{ width: "18rem" }}
+            >
+              <div
+                className="imagenGrilla"
+                style={{
+                  width: "18rem",
+                  height: "12rem",
+                  backgroundImage: `url('${auto.imagen}')`,
+                }}
+                onClick={() => {
+                  auto.liked = !auto.liked;
+                  setAutosFiltrados([...autosFiltrados]);
+                }}
+              ></div>
+              <Card.Body>
+                <Card.Title className="meGustaCard">
+                  {auto.marca} {auto.modelo}
+                  {user && (
+                    <div
+                      className="corazon"
+                      onClick={() => {
+                        auto.liked = !auto.liked;
+                        setAutosFiltrados([...autosFiltrados]);
+                      }}
+                    >
+                      {auto.liked ? (
+                        <img height="50" src={corazonLleno} alt="" />
+                      ) : (
+                        <img height="50" src={corazonVacio} alt="" />
+                      )}
+                    </div>
+                  )}
+                </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Precio: $ {auto.precio}</ListGroup.Item>
+                <ListGroup.Item>Año: {auto.año}</ListGroup.Item>
+                <ListGroup.Item>
+                  Recorrido: {auto.kilometraje} km
+                </ListGroup.Item>
+              </ListGroup>
+              <Card.Body className="botonesTrajeta" key={auto.id}>
+                <Link to={`detalle/${auto.id}`}>
+                  <Boton
+                    contenido="Ver Auto"
+                    key={auto.id}
+                    style={{ width: "7.1rem" }}
+                  />
+                </Link>
                 <Boton
-                  contenido="Ver Auto"
-                  key={auto.id}
-                  style={{ width: "7.1rem" }}
+                  contenido="Añadir al 🛒"
+                  style={{ width: "8rem" }}
+                  handleClick={() => enviarAutoAlCarro(auto)}
                 />
-              </Link>
+              </Card.Body>
+            </Card>
+          ))
+        ) : (
+          <div className="divNoHayPublicaciones">
+            <h1 className="display-1">No hay Pick-ups aun!!!</h1>
+            <Link to="/nuevoAuto">
               <Boton
-                contenido="Añadir al 🛒"
-                style={{ width: "8rem" }}
-                handleClick={() => enviarAutoAlCarro(auto)}
+                contenido="Publicar"
+                handleClick={() => enviarAAutoNuevo()}
               />
-            </Card.Body>
-          </Card>
-        ))}
+            </Link>
+          </div>
+        )}
       </div>
+      <Footer />
     </>
   );
 }

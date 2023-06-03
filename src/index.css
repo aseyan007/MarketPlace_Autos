@@ -182,15 +182,16 @@ a.active {
 
 .carrito {
   display: flex;
-  justify-content: space-between;
-  max-width: 80%;
+  flex-direction: column;
   align-items: center;
-  margin-left: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
   min-height: 10rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  border: solid black 1px;
-  box-shadow: 10px 10px rgb(103, 103, 103);
+ 
 }
 
 .botonesCarrito {
@@ -328,6 +329,9 @@ a.active {
 }
 
 .imagenFavoritos {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
   width: 15rem;
   height: 15rem;
   background-position: center;
@@ -444,6 +448,27 @@ a.active {
   justify-content: space-between;
   display: flex;
   flex-direction: column;
+}
+
+.divNoHayPublicaciones {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40vh;
+  width: 80vw;
+}
+
+.contenedorFiltros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.inputBusquedaFiltros {
+  max-width: 70vw;
 }
 
 @media only screen and (min-width: 400px) {
@@ -647,8 +672,8 @@ a.active {
   }
 
   .botonFavoritos {
-    border: solid white 1px;
-    border-radius: 50%;
+   padding-right: 0.5rem;
+ 
   }
 
   .sectionPublicaciones {
@@ -715,6 +740,7 @@ a.active {
 
   .carrito {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 90%;
     align-items: center;
@@ -733,6 +759,25 @@ a.active {
     width: 8rem;
     height: 8rem;
     margin-right: 2rem;
+  }
+
+  .divNoHayPublicaciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40vh;
+    width: 100vw;
+  }
+  .contenedorFiltros {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .inputBusquedaFiltros {
+    width: 20rem;
   }
 
   .footer {
