@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AutosContext } from "../components/Context/AutosContext";
 import { Container, Col, Row, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -9,14 +9,14 @@ import Footer from "../components/Footer";
 
 function Favoritos() {
   const navigate = useNavigate();
-  const { autosFavoritos, setAutosFavoritos, agregarAutoAlCarrito } =
+  let { autosFavoritos, setAutosFavoritos, agregarAutoAlCarrito } =
     useContext(AutosContext);
 
-  const favoritos = autosFavoritos.filter((auto) => auto.liked === true);
 
   const deleteProduct = (id) => {
-    const newProducts = favoritos.filter((favorito) => favorito.id !== id);
-    setAutosFavoritos(newProducts);
+    const favoritoFound = autosFavoritos.find((favorito) => favorito.id === id);
+    favoritoFound.liked = false
+    setAutosFavoritos([...autosFavoritos]);
   };
 
    const enviarAutosAlCarro = (auto) => {
@@ -36,8 +36,8 @@ function Favoritos() {
               <section className="sectionFavoritos">
                 <h1 className="text-center mt-3">Estos son tus favoritos!!</h1>
                 <div className="divFavoritos mt-3">
-                  {autosFavoritos.length > 0 ? (
-                    favoritos.map((item, i) => (
+                  {autosFavoritos.filter(a => a.liked).length > 0 ? (
+                    autosFavoritos.filter(a => a.liked).map((item, i) => (
                       <div className="cardFavoritos" key={i}>
                         <div
                           className="imagenFavoritos"

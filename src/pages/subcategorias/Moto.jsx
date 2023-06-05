@@ -26,12 +26,20 @@ function Moto() {
       const autosFiltradosPorAño = autos.filter((auto) => {
         return (
           auto.año.toString() === añoFiltrado &&
+          (marcaFiltrada ?auto.marca.toString() === marcaFiltrada  : true) &&
           auto.categoria.toLowerCase() === "moto"
         );
       });
       setAutosFiltrados(autosFiltradosPorAño);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+        marcaFiltrada
+            ? auto.marca.toString() === marcaFiltrada &&
+              auto.categoria.toLowerCase() === "moto"
+            : auto.categoria.toLowerCase() === "moto"
+        ),
+      ]);
     }
   };
 
@@ -40,12 +48,20 @@ function Moto() {
       const autosFiltradosPorMarca = autos.filter((auto) => {
         return (
           auto.marca.toString() === marcaFiltrada &&
+          (añoFiltrado ? auto.año.toString() === añoFiltrado : true) &&
           auto.categoria.toLowerCase() === "moto"
         );
       });
       setAutosFiltrados(autosFiltradosPorMarca);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+          añoFiltrado
+            ? auto.año.toString() === añoFiltrado &&
+              auto.categoria.toLowerCase() === "moto"
+            : auto.categoria.toLowerCase() === "moto"
+        ),
+      ]);
     }
   };
 

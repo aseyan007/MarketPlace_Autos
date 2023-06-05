@@ -3,7 +3,8 @@ import { useState, useEffect, createContext } from "react";
 export const AutosContext = createContext();
 
 function AutosProvider({ children }) {
-  const [autos, setAutos] = useState([]);
+  const currentAutosInLocalStorage = JSON.parse(localStorage.getItem("autos"))
+  const [autos, setAutos] = useState( currentAutosInLocalStorage.length ? currentAutosInLocalStorage:  []);
   const [autosFavoritos, setAutosFavoritos] = useState([]);
   const [search, setSearch] = useState("");
   const [autosFiltrados, setAutosFiltrados] = useState([]);

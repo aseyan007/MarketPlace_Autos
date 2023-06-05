@@ -26,12 +26,20 @@ function Sedan() {
       const autosFiltradosPorAño = autos.filter((auto) => {
         return (
           auto.año.toString() === añoFiltrado &&
+          (marcaFiltrada ?auto.marca.toString() === marcaFiltrada  : true) &&
           auto.categoria.toLowerCase() === "sedan"
         );
       });
       setAutosFiltrados(autosFiltradosPorAño);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+        marcaFiltrada
+            ? auto.marca.toString() === marcaFiltrada &&
+              auto.categoria.toLowerCase() === "sedan"
+            : auto.categoria.toLowerCase() === "sedan"
+        ),
+      ]);
     }
   };
 
@@ -40,14 +48,44 @@ function Sedan() {
       const autosFiltradosPorMarca = autos.filter((auto) => {
         return (
           auto.marca.toString() === marcaFiltrada &&
+          (añoFiltrado ? auto.año.toString() === añoFiltrado : true) &&
           auto.categoria.toLowerCase() === "sedan"
         );
       });
       setAutosFiltrados(autosFiltradosPorMarca);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+          añoFiltrado
+            ? auto.año.toString() === añoFiltrado &&
+              auto.categoria.toLowerCase() === "sedan"
+            : auto.categoria.toLowerCase() === "sedan"
+        ),
+      ]);
     }
   };
+
+  const filtrarAutosPorPrecio = () => {
+    let autosFiltradosPorPrecio = [...autosFiltrados];
+    if (precioFiltrado === "ordenarPorPrecio") {
+      autosFiltradosPorPrecio = autosFiltrados;
+    } else if (precioFiltrado === "descendente") {
+      autosFiltradosPorPrecio = autosFiltrados.sort(
+        (a, b) => b.precio - a.precio
+        );
+      } else if (precioFiltrado === "ascendente") {
+      autosFiltradosPorPrecio = autosFiltrados.sort(
+        (a, b) => a.precio - b.precio
+      );
+    }
+
+    setAutosFiltrados([...autosFiltradosPorPrecio]);
+  };
+
+  
+  useEffect(() => {
+    filtrarAutosPorPrecio();
+  }, [precioFiltrado]);
 
   useEffect(() => {
     filtrarAutosPorAño();

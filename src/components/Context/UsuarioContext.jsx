@@ -22,17 +22,23 @@ const UserProvider = ({ children }) => {
   }, [user]);
 
   const login = async (email, password) => {
-    const users = await getUsers();
-    const userDB = users.find(
-      (item) => item.email === email && password === item.password
-    );
-    if (userDB) {
-      setUser(userDB);
+    const currentUserInLocalStorage = JSON.parse(localStorage.getItem("user"));
+    if (currentUserInLocalStorage) {
+      setUser(currentUserInLocalStorage);
+      return currentUserInLocalStorage;
     } else {
-      setUser(null);
-    }
+      const users = await getUsers();
+      const userDB = users.find(
+        (item) => item.email === email && password === item.password
+      );
+      if (userDB) {
+        setUser(userDB);
+      } else {
+        setUser(null);
+      }
 
-    return userDB;
+      return userDB;
+    }
   };
 
   const register = (user) => {
@@ -41,7 +47,6 @@ const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
   };
 
   const actualizarUserInLocalStorage = (user) => {

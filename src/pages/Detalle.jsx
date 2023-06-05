@@ -25,9 +25,10 @@ function DetalleAuto() {
 
   return (
     <>
-      <div className="renderSeccionDetalle">
+      <div className="renderSeccionDetalle" >
         {autos.length && (
-          <section className="seccionDetalle">
+          <section className="seccionDetalle" >
+         
             <div>
               <img className="imagenDetalle" src={auto.imagen} alt="..." />
             </div>
@@ -55,6 +56,7 @@ function DetalleAuto() {
                 />
               </div>
             </div>
+           
           </section>
         )}
       </div>

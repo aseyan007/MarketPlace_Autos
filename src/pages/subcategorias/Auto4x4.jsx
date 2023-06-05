@@ -26,12 +26,20 @@ function Auto4x4() {
       const autosFiltradosPorAño = autos.filter((auto) => {
         return (
           auto.año.toString() === añoFiltrado &&
+          (marcaFiltrada ?auto.marca.toString() === marcaFiltrada  : true) &&
           auto.categoria.toLowerCase() === "4x4"
         );
       });
       setAutosFiltrados(autosFiltradosPorAño);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+        marcaFiltrada
+            ? auto.marca.toString() === marcaFiltrada &&
+              auto.categoria.toLowerCase() === "4x4"
+            : auto.categoria.toLowerCase() === "4x4"
+        ),
+      ]);
     }
   };
 
@@ -40,12 +48,20 @@ function Auto4x4() {
       const autosFiltradosPorMarca = autos.filter((auto) => {
         return (
           auto.marca.toString() === marcaFiltrada &&
+          (añoFiltrado ? auto.año.toString() === añoFiltrado : true) &&
           auto.categoria.toLowerCase() === "4x4"
         );
       });
       setAutosFiltrados(autosFiltradosPorMarca);
     } else {
-      setAutosFiltrados(autosFiltrados);
+      setAutosFiltrados([
+        ...autos.filter((auto) =>
+          añoFiltrado
+            ? auto.año.toString() === añoFiltrado &&
+              auto.categoria.toLowerCase() === "4x4"
+            : auto.categoria.toLowerCase() === "4x4"
+        ),
+      ]);
     }
   };
 

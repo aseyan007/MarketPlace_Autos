@@ -191,7 +191,6 @@ a.active {
   min-height: 10rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
- 
 }
 
 .botonesCarrito {
@@ -282,8 +281,9 @@ a.active {
   display: flex;
   flex-direction: column;
   width: 85vw;
+  min-height: 75vh;
   border: black solid 2px;
-
+  margin-bottom: 2rem;
   box-shadow: 10px 10px rgb(103, 103, 103);
 }
 
@@ -579,28 +579,81 @@ a.active {
     height: 10rem;
     width: 10rem;
   }
+  .contenedorPublicaciones {
+    /* max-height: 80%; */
+    border: black solid 2px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    margin-top: 1rem;
+    margin-left: 12%;
+    border-radius: 10px;
+    height: 70vh;
+    width: 60vw;
+
+    box-shadow: 10px 10px rgb(103, 103, 103);
+  }
+  .seccionPublicaciones {
+    border-radius: 15px;
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 20%;
+    border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103);
+  }
+  .imagenPublicaciones {
+    max-width: 50%;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .divDetallePublicaciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    /* margin-top: 1rem;
+    margin-left: 12%; */
+    border-radius: 10px;
+    /* height: 70vh;
+    width: 60vw; */
+    border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103);
+  }
+
+  .seccionDetallePublicaciones img {
+    max-width: 10rem;
+  }
 
   .renderSeccionDetalle {
     margin-top: 8rem;
     margin-bottom: 8rem;
+   
   }
 
   .seccionDetalle {
     border-radius: 15px;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: row;
-    width: 50vw;
-    border: black solid 2px;
+    width: 50%;
+    min-height: 50%;
+    /* border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103); */
   }
 
   .seccionDetalle div {
     width: 50%;
+    max-height:50%;
+    /* border: black solid 2px;
+    box-shadow: 10px 10px rgb(103, 103, 103); */
   }
 
   .imagenDetalle {
     width: 100%;
     border-radius: 15px 0 0 15px;
+    max-height: 50vh;
   }
 
   .datosDetalleAutos {
@@ -629,8 +682,9 @@ a.active {
     margin-left: 12%;
     padding-top: 1rem;
     border-radius: 10px;
-    min-height: 70vh;
-    width: 65vw;
+    height: 70vh;
+    width: 60vw;
+
     border: black solid 2px;
     box-shadow: 10px 10px rgb(103, 103, 103);
     display: grid;
@@ -672,8 +726,7 @@ a.active {
   }
 
   .botonFavoritos {
-   padding-right: 0.5rem;
- 
+    padding-right: 0.5rem;
   }
 
   .sectionPublicaciones {

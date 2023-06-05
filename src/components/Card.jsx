@@ -65,15 +65,15 @@ function TarjetaAutos() {
       autosFiltradosPorPrecio = autosFiltrados;
     } else if (precioFiltrado === "descendente") {
       autosFiltradosPorPrecio = autosFiltrados.sort(
-        (a, b) => a.precio - b.precio
-      );
-    } else if (precioFiltrado === "ascendente") {
-      autosFiltradosPorPrecio = autosFiltrados.sort(
         (a, b) => b.precio - a.precio
+        );
+      } else if (precioFiltrado === "ascendente") {
+      autosFiltradosPorPrecio = autosFiltrados.sort(
+        (a, b) => a.precio - b.precio
       );
     }
 
-    setAutosFiltrados(autosFiltradosPorPrecio);
+    setAutosFiltrados([...autosFiltradosPorPrecio]);
   };
 
   useEffect(() => {

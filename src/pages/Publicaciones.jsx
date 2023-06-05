@@ -14,6 +14,7 @@ function Publicaciones() {
   const navigate = useNavigate();
 
   const enviarAAutoNuevo = () => {
+    console.log(publicaciones)
     navigate("/nuevoAuto");
   };
 
@@ -35,23 +36,31 @@ function Publicaciones() {
           </Col>
           <Col sm={7}>
             <section className="sectionPublicaciones mt-3">
-              <h1>Tus publicaciones!!</h1>
-              <Link to="/nuevoAuto">
-                <Boton
-                  contenido="Publicar"
-                  handleClick={() => enviarAAutoNuevo()}
-                />
-              </Link>
-              <div className="divPublicaciones">
-                <div className="renderSeccionDetalle">
-                  {autos.length && (
-                    <div>
-                      {publicaciones.map((auto) => {
-                        <section className="seccionDetalle">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <h1 style={{ marginInline: "6rem" }}>Tus publicaciones!!</h1>
+                <Link to="/nuevoAuto">
+                  <Boton
+                    contenido="Publicar"
+                    handleClick={() => enviarAAutoNuevo()}
+                  />
+                </Link>
+              </div>
+              <div className="contenedorPublicaciones">
+                {/* <div> */}
+
+                {publicaciones.length > 0 && (
+                  <div>
+                    {publicaciones.map((auto) => {
+                      return (
+                        <section key={auto.id} className="seccionPublicaciones">
                           <div>
-                            <img className="imagenDetalle" alt="..." />
+                            <img
+                              className="imagenPublicaciones"
+                              alt="..."
+                              src={auto.imagen}
+                            />
                           </div>
-                          <div className="datosDetalleAutos">
+                          <div>
                             <h1>
                               {auto.marca} {auto.modelo}
                             </h1>
@@ -76,11 +85,12 @@ function Publicaciones() {
                               />
                             </div>
                           </div>
-                        </section>;
-                      })}
-                    </div>
-                  )}
-                </div>
+                        </section>
+                      );
+                    })}
+                  </div>
+                )}
+                {/* </div> */}
               </div>
             </section>
           </Col>
