@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AutosContext } from "../../components/Context/AutosContext";
 import { UserContext } from "../../components/Context/UsuarioContext";
+import { FiltrosContext } from "../../components/Context/FiltrosContext";
 import corazonLleno from "../../assets/icons/30571.png";
 import corazonVacio from "../../assets/icons/corazon_borde.avif";
 import { Card, ListGroup, Form } from "react-bootstrap";
@@ -11,42 +12,67 @@ import Footer from "../../components/Footer";
 
 function Suv() {
   const { user } = useContext(UserContext);
-  const { autos, agregarAutoAlCarrito } = useContext(AutosContext);
+  const { autos, agregarAutoAlCarrito, search, setSearch } =
+    useContext(AutosContext);
+  const { filtrarAutos } = useContext(FiltrosContext);
+  const [precioFiltrado, setPrecioFiltrado] = useState("ordenarPorPrecio");
+  const [añoFiltrado, setAñoFiltrado] = useState("");
+  const [marcaFiltrada, setMarcaFiltrada] = useState("");
   const [autosFiltrados, setAutosFiltrados] = useState([]);
-  const [autosFiltradosSedan, setAutosFiltradosSedan] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
   const navigate = useNavigate();
 
-  const filtrarAutos = () => {
-    const autosFiltradosPorCategoria = autos.filter((auto) => {
-      return auto.categoria.toLowerCase() === "suv";
-    });
-    setAutosFiltrados(autosFiltradosPorCategoria);
-    setAutosFiltradosSedan(autosFiltradosPorCategoria);
+  const filtrarAutosPorAño = () => {
+    if (añoFiltrado !== "") {
+      const autosFiltradosPorAño = autos.filter((auto) => {
+        return (
+          auto.año.toString() === añoFiltrado &&
+          auto.categoria.toLowerCase() === "suv"
+        );
+      });
+      setAutosFiltrados(autosFiltradosPorAño);
+    } else {
+      setAutosFiltrados(autosFiltrados);
+    }
+  };
+
+  const filtrarAutosPorMarca = () => {
+    if (marcaFiltrada !== "") {
+      const autosFiltradosPorMarca = autos.filter((auto) => {
+        return (
+          auto.marca.toString() === marcaFiltrada &&
+          auto.categoria.toLowerCase() === "suv"
+        );
+      });
+      setAutosFiltrados(autosFiltradosPorMarca);
+    } else {
+      setAutosFiltrados(autosFiltrados);
+    }
   };
 
   useEffect(() => {
-    filtrarAutos();
-  }, []);
+    filtrarAutosPorAño();
+  }, [añoFiltrado]);
+
+  useEffect(() => {
+    filtrarAutosPorMarca();
+  }, [marcaFiltrada]);
+
+  useEffect(() => {
+    const autosFiltradosPorCategoria = autos.filter((auto) => {
+      return auto.categoria.toLowerCase() === "suv";
+    });
+
+    setAutosFiltrados(autosFiltradosPorCategoria);
+  }, [autos]);
+
+  useEffect(() => {
+    filtrarAutos(search);
+  }, [search]);
 
   const enviarAutoAlCarro = (auto) => {
     agregarAutoAlCarrito(auto);
     navigate("/carrito");
   };
-
-  // const buscarAutos = () => {
-  //   const autosBuscados = autosFiltrados.filter((auto) => {
-  //     return (
-  //       auto.modelo.toLowerCase().includes(busqueda.toLowerCase()) ||
-  //       auto.marca.toLowerCase().includes(busqueda.toLowerCase())
-  //     );
-  //   });
-  //   setAutosFiltrados(autosBuscados);
-  // };
-
-  // useEffect(() => {
-  //   buscarAutos();
-  // }, [busqueda]);
 
   return (
     <>
@@ -55,11 +81,48 @@ function Suv() {
           <Form.Control
             type="text"
             placeholder="🍳 Busca tu modelo"
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </Form.Group>
       </Form>
+      <div className="contenedorFiltros">
+        <Form.Select
+          className="inputBusquedaFiltros"
+          value={precioFiltrado}
+          onChange={(e) => setPrecioFiltrado(e.target.value)}
+        >
+          <option value="ordenarPorPrecio">Buscar por precio</option>
+          <option value="ascendente">Menor a Mayor</option>
+          <option value="descendente">Mayor a Menor</option>
+        </Form.Select>
+
+        <Form.Select
+          className="inputBusquedaFiltros"
+          value={añoFiltrado}
+          onChange={(e) => setAñoFiltrado(e.target.value)}
+        >
+          <option value="">Buscar por año</option>
+          {Array.from(new Set(autos.map((auto) => auto.año))).map((año) => (
+            <option key={año} value={año}>
+              {año}
+            </option>
+          ))}
+        </Form.Select>
+
+        <Form.Select
+          className="inputBusquedaFiltros"
+          value={marcaFiltrada}
+          onChange={(e) => setMarcaFiltrada(e.target.value)}
+        >
+          <option value="">Buscar por marca</option>
+          {Array.from(new Set(autos.map((auto) => auto.marca))).map((marca) => (
+            <option key={marca} value={marca}>
+              {marca}
+            </option>
+          ))}
+        </Form.Select>
+      </div>
       <div className="galeriaGrilla">
         {autosFiltrados.map((auto) => (
           <Card
@@ -73,10 +136,6 @@ function Suv() {
                 width: "18rem",
                 height: "12rem",
                 backgroundImage: `url('${auto.imagen}')`,
-              }}
-              onClick={() => {
-                auto.liked = !auto.liked;
-                setAutosFiltrados([...autosFiltrados]);
               }}
             ></div>
             <Card.Body>

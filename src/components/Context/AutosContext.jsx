@@ -37,7 +37,9 @@ function AutosProvider({ children }) {
 
   const crearNuevoAuto = (auto) => {
     setAutos([auto, ...autos]);
+    setPublicaciones([auto, ...publicaciones]);
   };
+
   const eliminarAuto = (id) => {
     const autoEliminado = autos.filter((auto) => auto.id !== id);
     setAutos(autoEliminado);

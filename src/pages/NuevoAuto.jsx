@@ -15,6 +15,7 @@ function NuevoAuto() {
   const [precio, setPrecio] = useState("");
   const [kilometraje, setKilometraje] = useState("");
   const [año, setAño] = useState("");
+  const [categoria, setCategoria] = useState("Categoria");
   const [liked, setLiked] = useState(false);
   const [imagen, setImagen] = useState(
     "https://i.scdn.co/image/ab67616d0000b2739d1b1ebce0952ba19702b422"
@@ -29,6 +30,7 @@ function NuevoAuto() {
       precio,
       kilometraje,
       año,
+      categoria,
       liked,
       imagen,
       id: Date.now(),
@@ -39,7 +41,8 @@ function NuevoAuto() {
     navigate("/publicaciones");
   };
 
-  const formularioValido = marca && modelo && precio && kilometraje && año;
+  const formularioValido =
+    marca && modelo && precio && kilometraje && año && categoria;
 
   return (
     <>
@@ -91,6 +94,21 @@ function NuevoAuto() {
                   value={año}
                   onChange={(e) => setAño(e.target.value)}
                 />
+              </Col>
+              <Col>
+                <Form.Select
+                  onChange={(e) => setCategoria(e.target.value)}
+                  value={categoria}
+                >
+                  <option value="Categoria" disabled>
+                    Categoria
+                  </option>
+                  <option value="sedan">Sedan</option>
+                  <option value="pickup">Pick-up</option>
+                  <option value="4x4">4x4</option>
+                  <option value="suv">Suv</option>
+                  <option value="moto">Motos</option>
+                </Form.Select>
               </Col>
               <Col>
                 <Form.Group controlId="formFileSm">

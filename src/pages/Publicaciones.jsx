@@ -5,7 +5,7 @@ import Boton from "../components/Boton";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AutosContext } from "../components/Context/AutosContext";
 
 function Publicaciones() {
@@ -44,42 +44,42 @@ function Publicaciones() {
               </Link>
               <div className="divPublicaciones">
                 <div className="renderSeccionDetalle">
-                  {/* {autos.length && (
-          <div>
-          {autos.map((auto) => {
-          <section className="seccionDetalle">
-            <div>
-              <img className="imagenDetalle" alt="..." />
-            </div>
-            <div className="datosDetalleAutos">
-              <h1>
-                {auto.marca} {auto.modelo}
-              </h1>
-              <br />
+                  {autos.length && (
+                    <div>
+                      {publicaciones.map((auto) => {
+                        <section className="seccionDetalle">
+                          <div>
+                            <img className="imagenDetalle" alt="..." />
+                          </div>
+                          <div className="datosDetalleAutos">
+                            <h1>
+                              {auto.marca} {auto.modelo}
+                            </h1>
+                            <br />
 
-              <h3>{auto.kilometraje} Km</h3>
-              <h3>$ {auto.precio}</h3>
-              <h3>Año: {auto.año}</h3>
-              <br />
-              <div className="botonesDetalle">
-                <Boton
-                  contenido="Volver"
-                  style={{ width: "8rem" }}
-                  handleClick={() => volverALaGaleria(auto)}
-                />
+                            <h3>{auto.kilometraje} Km</h3>
+                            <h3>$ {auto.precio}</h3>
+                            <h3>Año: {auto.año}</h3>
+                            <br />
+                            <div className="botonesDetalle">
+                              <Boton
+                                contenido="Volver"
+                                style={{ width: "8rem" }}
+                                handleClick={() => volverALaGaleria(auto)}
+                              />
 
-                <Boton
-                  contenido="Añadir al 🛒"
-                  style={{ width: "8rem" }}
-                  handleClick={() => enviarAutosAlCarro(auto)}
-                  // handleClick={enviarAutosAlCarro}
-                />
-              </div>
-            </div>
-          </section>
-          })}
-          </div>
-        )} */}
+                              <Boton
+                                contenido="Añadir al 🛒"
+                                style={{ width: "8rem" }}
+                                handleClick={() => enviarAutosAlCarro(auto)}
+                                // handleClick={enviarAutosAlCarro}
+                              />
+                            </div>
+                          </div>
+                        </section>;
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </section>

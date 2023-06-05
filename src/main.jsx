@@ -5,13 +5,16 @@ import "./index.css";
 import UserProvider from "./components/Context/UsuarioContext.jsx";
 import AutosProvider from "./components/Context/AutosContext.jsx";
 import ValidacionesProvider from "./components/Context/ValidacionesContext.jsx";
+import FiltrosProvider from "./components/Context/FiltrosContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserProvider>
       <AutosProvider>
         <ValidacionesProvider>
-          <App />
+          <FiltrosProvider>
+            <App />
+          </FiltrosProvider>
         </ValidacionesProvider>
       </AutosProvider>
     </UserProvider>

@@ -20,7 +20,7 @@ function DetalleAuto() {
   };
 
   const volverALaGaleria = () => {
-    navigate("/galeriaAutos");
+    navigate(-1);
   };
 
   return (

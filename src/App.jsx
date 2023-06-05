@@ -38,6 +38,11 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/galeriaAutos" element={<GaleriaAutos />} />
           <Route path="/galeriaAutos/detalle/:id" element={<DetalleAuto />} />
+          <Route path="/sedan/detalle/:id" element={<DetalleAuto />} />
+          <Route path="/pickup/detalle/:id" element={<DetalleAuto />} />
+          <Route path="/4x4/detalle/:id" element={<DetalleAuto />} />
+          <Route path="/suv/detalle/:id" element={<DetalleAuto />} />
+          <Route path="/moto/detalle/:id" element={<DetalleAuto />} />
 
           <Route
             path="/nuevoAuto"
