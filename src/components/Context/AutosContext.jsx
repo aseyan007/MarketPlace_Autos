@@ -4,7 +4,7 @@ export const AutosContext = createContext();
 
 function AutosProvider({ children }) {
   const currentAutosInLocalStorage = JSON.parse(localStorage.getItem("autos"))
-  const [autos, setAutos] = useState( currentAutosInLocalStorage.length ? currentAutosInLocalStorage:  []);
+  const [autos, setAutos] = useState( currentAutosInLocalStorage && currentAutosInLocalStorage.length ? currentAutosInLocalStorage:  []);
   const [autosFavoritos, setAutosFavoritos] = useState([]);
   const [search, setSearch] = useState("");
   const [autosFiltrados, setAutosFiltrados] = useState([]);
