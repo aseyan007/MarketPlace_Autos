@@ -11,6 +11,8 @@ function AutosProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
   const [publicaciones, setPublicaciones] = useState([]);
 
+  
+
   const getAutos = async () => {
     try {
       const response = await fetch("/autos.json");
@@ -38,7 +40,7 @@ function AutosProvider({ children }) {
 
   const crearNuevoAuto = (auto) => {
     setAutos([auto, ...autos]);
-    setPublicaciones([auto, ...publicaciones]);
+    
   };
 
   const eliminarAuto = (id) => {

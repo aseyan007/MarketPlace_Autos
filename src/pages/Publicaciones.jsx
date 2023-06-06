@@ -7,15 +7,17 @@ import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AutosContext } from "../components/Context/AutosContext";
+import { UserContext } from "../components/Context/UsuarioContext";
+import EditarAuto from "./EditarAuto";
 
 function Publicaciones() {
   const { publicaciones, autos } = useContext(AutosContext);
+  const { user } = useContext(UserContext);
   const params = useParams();
   const navigate = useNavigate();
 
   const enviarAAutoNuevo = () => {
-    console.log(publicaciones)
-    navigate("/nuevoAuto");
+       navigate("/editarAuto");
   };
 
   //  const obtenerAutoPorId = (id) =>
@@ -35,9 +37,9 @@ function Publicaciones() {
             <PerfilUsuarioCard />
           </Col>
           <Col sm={7}>
-            <section className="sectionPublicaciones mt-3">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <h1 style={{ marginInline: "6rem" }}>Tus publicaciones!!</h1>
+            <section className=" sectionPublicaciones mt-3">
+              <div className="sectionDivPublicaciones">
+                <h1>Tus publicaciones!!</h1>
                 <Link to="/nuevoAuto">
                   <Boton
                     contenido="Publicar"
@@ -48,11 +50,11 @@ function Publicaciones() {
               <div className="contenedorPublicaciones">
                 {/* <div> */}
 
-                {publicaciones.length > 0 && (
+                {autos.filter((auto) => user.email == auto.user).length > 0 && (
                   <div>
-                    {publicaciones.map((auto) => {
+                    {autos.filter((auto) => user.email == auto.user).map((auto) => {
                       return (
-                        <section key={auto.id} className="seccionPublicaciones">
+                        <section key={auto.id} className="cardPublicaciones">
                           <div>
                             <img
                               className="imagenPublicaciones"
@@ -60,7 +62,7 @@ function Publicaciones() {
                               src={auto.imagen}
                             />
                           </div>
-                          <div>
+                          {/* <div> */}
                             <h1>
                               {auto.marca} {auto.modelo}
                             </h1>
@@ -72,18 +74,11 @@ function Publicaciones() {
                             <br />
                             <div className="botonesDetalle">
                               <Boton
-                                contenido="Volver"
-                                style={{ width: "8rem" }}
-                                handleClick={() => volverALaGaleria(auto)}
-                              />
-
-                              <Boton
-                                contenido="Añadir al 🛒"
+                                contenido="Editar"
                                 style={{ width: "8rem" }}
                                 handleClick={() => enviarAutosAlCarro(auto)}
-                                // handleClick={enviarAutosAlCarro}
                               />
-                            </div>
+                            {/* </div> */}
                           </div>
                         </section>
                       );

@@ -13,7 +13,18 @@ const initialStateUser = localStorage.getItem("user")
   : null;
 
 const UserProvider = ({ children }) => {
+  const [usuarios, setUsuarios] = useState([]);
   const [user, setUser] = useState(initialStateUser);
+
+  useEffect(() => {
+    const usersInLocalStorage = JSON.parse(localStorage.getItem("usuarios"));
+    if(!usersInLocalStorage){
+      getUsers().then((usuarios) => {
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        setUsuarios(usuarios);
+      });
+    } else setUsuarios(usersInLocalStorage);
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -22,26 +33,16 @@ const UserProvider = ({ children }) => {
   }, [user]);
 
   const login = async (email, password) => {
-    const currentUserInLocalStorage = JSON.parse(localStorage.getItem("user"));
-    if (currentUserInLocalStorage) {
-      setUser(currentUserInLocalStorage);
-      return currentUserInLocalStorage;
-    } else {
-      const users = await getUsers();
-      const userDB = users.find(
-        (item) => item.email === email && password === item.password
-      );
-      if (userDB) {
-        setUser(userDB);
-      } else {
-        setUser(null);
-      }
-
-      return userDB;
-    }
+    const user = usuarios.find(
+      (item) => item.email === email && password === item.password
+    );
+    setUser(user);
+    return user;
   };
 
   const register = (user) => {
+    setUsuarios([...usuarios, user]);
+    localStorage.setItem("usuarios", JSON.stringify([...usuarios, user]));
     setUser(user);
   };
 

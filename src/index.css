@@ -257,6 +257,17 @@ a.active {
 .sectionPublicaciones {
   display: flex;
   flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  border: black solid 2px;
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px rgb(103, 103, 103);
+  width: 90vw;
+  min-height: 70vh;
+}
+.sectionDivPublicaciones {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .divPublicaciones {
@@ -581,32 +592,59 @@ a.active {
   }
   .contenedorPublicaciones {
     /* max-height: 80%; */
-    border: black solid 2px;
+    /* border: black solid 2px; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     margin-top: 1rem;
-    margin-left: 12%;
+    /* margin-left: 8%; */
     border-radius: 10px;
-    height: 70vh;
-    width: 60vw;
+    max-height: 70%;
+    width: 50vw;
 
-    box-shadow: 10px 10px rgb(103, 103, 103);
+    /* box-shadow: 10px 10px rgb(103, 103, 103); */
   }
-  .seccionPublicaciones {
+  .cardPublicaciones {
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     box-shadow: 10px 10px rgb(103, 103, 103);
+     border: black solid 2px;
+  }
+  /* .seccionPublicaciones {
     border-radius: 15px;
-    /* margin: auto; */
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 20%;
+    width: 60vw;
     border: black solid 2px;
     box-shadow: 10px 10px rgb(103, 103, 103);
+  } */
+  .sectionPublicaciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    /* border: black solid 2px; */
+    margin-bottom: 2rem;
+    /* box-shadow: 10px 10px rgb(103, 103, 103); */
+    width: 50vw;
+    min-height: 10vh;
+  }
+  .sectionDivPublicaciones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
   }
   .imagenPublicaciones {
-    max-width: 50%;
-    border-radius: 15px 15px 0 0;
+    max-width: 100%;
+
   }
 
   .divDetallePublicaciones {
@@ -626,10 +664,14 @@ a.active {
     max-width: 10rem;
   }
 
+  .botonesDetalle {
+    max-width: 18.5rem;
+    margin-bottom: 2rem; 
+   }
+
   .renderSeccionDetalle {
     margin-top: 8rem;
     margin-bottom: 8rem;
-   
   }
 
   .seccionDetalle {
@@ -645,7 +687,7 @@ a.active {
 
   .seccionDetalle div {
     width: 50%;
-    max-height:50%;
+    max-height: 50%;
     /* border: black solid 2px;
     box-shadow: 10px 10px rgb(103, 103, 103); */
   }
@@ -665,9 +707,7 @@ a.active {
     width: 100%;
   }
 
-  .botonesDetalle {
-    min-width: 25vw;
-  }
+ 
   .sectionFavoritos {
     display: flex;
     min-height: 100%;

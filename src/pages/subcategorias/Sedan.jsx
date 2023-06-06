@@ -12,100 +12,55 @@ import Footer from "../../components/Footer";
 
 function Sedan() {
   const { user } = useContext(UserContext);
-  const { autos, agregarAutoAlCarrito, search, setSearch } =
-    useContext(AutosContext);
-  const { filtrarAutos } = useContext(FiltrosContext);
+  const { autos, agregarAutoAlCarrito } = useContext(AutosContext);
   const [precioFiltrado, setPrecioFiltrado] = useState("ordenarPorPrecio");
   const [añoFiltrado, setAñoFiltrado] = useState("");
   const [marcaFiltrada, setMarcaFiltrada] = useState("");
   const [autosFiltrados, setAutosFiltrados] = useState([]);
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  const filtrarAutosPorAño = () => {
-    if (añoFiltrado !== "") {
-      const autosFiltradosPorAño = autos.filter((auto) => {
-        return (
-          auto.año.toString() === añoFiltrado &&
-          (marcaFiltrada ?auto.marca.toString() === marcaFiltrada  : true) &&
-          auto.categoria.toLowerCase() === "sedan"
-        );
-      });
-      setAutosFiltrados(autosFiltradosPorAño);
-    } else {
-      setAutosFiltrados([
-        ...autos.filter((auto) =>
-        marcaFiltrada
-            ? auto.marca.toString() === marcaFiltrada &&
-              auto.categoria.toLowerCase() === "sedan"
-            : auto.categoria.toLowerCase() === "sedan"
-        ),
-      ]);
-    }
-  };
+  const filtrarAutos = () => {
+    let autosFiltradosPorCategoria = autos.filter(
+      (auto) => auto.categoria.toLowerCase() === "sedan"
+    );
 
-  const filtrarAutosPorMarca = () => {
-    if (marcaFiltrada !== "") {
-      const autosFiltradosPorMarca = autos.filter((auto) => {
-        return (
-          auto.marca.toString() === marcaFiltrada &&
-          (añoFiltrado ? auto.año.toString() === añoFiltrado : true) &&
-          auto.categoria.toLowerCase() === "sedan"
-        );
-      });
-      setAutosFiltrados(autosFiltradosPorMarca);
-    } else {
-      setAutosFiltrados([
-        ...autos.filter((auto) =>
-          añoFiltrado
-            ? auto.año.toString() === añoFiltrado &&
-              auto.categoria.toLowerCase() === "sedan"
-            : auto.categoria.toLowerCase() === "sedan"
-        ),
-      ]);
-    }
-  };
-
-  const filtrarAutosPorPrecio = () => {
-    let autosFiltradosPorPrecio = [...autosFiltrados];
-    if (precioFiltrado === "ordenarPorPrecio") {
-      autosFiltradosPorPrecio = autosFiltrados;
-    } else if (precioFiltrado === "descendente") {
-      autosFiltradosPorPrecio = autosFiltrados.sort(
-        (a, b) => b.precio - a.precio
-        );
-      } else if (precioFiltrado === "ascendente") {
-      autosFiltradosPorPrecio = autosFiltrados.sort(
-        (a, b) => a.precio - b.precio
+    if (añoFiltrado) {
+      autosFiltradosPorCategoria = autosFiltradosPorCategoria.filter(
+        (auto) => auto.año.toString() === añoFiltrado
       );
     }
 
-    setAutosFiltrados([...autosFiltradosPorPrecio]);
+    if (marcaFiltrada) {
+      autosFiltradosPorCategoria = autosFiltradosPorCategoria.filter(
+        (auto) => auto.marca.toString() === marcaFiltrada
+      );
+    }
+
+    if (search) {
+      autosFiltradosPorCategoria = autosFiltradosPorCategoria.filter((auto) => {
+        return (
+          auto.modelo.toLowerCase().includes(search.toLowerCase()) ||
+          auto.marca.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+    }
+
+    if (precioFiltrado) {
+      if(precioFiltrado == 'ascendente') autosFiltradosPorCategoria = autosFiltradosPorCategoria.sort(
+        (a,b) => a.precio - b.precio
+      );
+      if(precioFiltrado == 'descendente') autosFiltradosPorCategoria = autosFiltradosPorCategoria.sort(
+        (a,b) => b.precio - a.precio
+      );
+    }
+
+    setAutosFiltrados([...autosFiltradosPorCategoria]);
   };
 
-  
   useEffect(() => {
-    filtrarAutosPorPrecio();
-  }, [precioFiltrado]);
-
-  useEffect(() => {
-    filtrarAutosPorAño();
-  }, [añoFiltrado]);
-
-  useEffect(() => {
-    filtrarAutosPorMarca();
-  }, [marcaFiltrada]);
-
-  useEffect(() => {
-    const autosFiltradosPorCategoria = autos.filter((auto) => {
-      return auto.categoria.toLowerCase() === "sedan";
-    });
-
-    setAutosFiltrados(autosFiltradosPorCategoria);
-  }, [autos]);
-
-  useEffect(() => {
-    filtrarAutos(search);
-  }, [search]);
+    filtrarAutos();
+  }, [añoFiltrado, marcaFiltrada, search, precioFiltrado]);
 
   const enviarAutoAlCarro = (auto) => {
     agregarAutoAlCarrito(auto);
@@ -141,7 +96,7 @@ function Sedan() {
           onChange={(e) => setAñoFiltrado(e.target.value)}
         >
           <option value="">Buscar por año</option>
-          {Array.from(new Set(autos.map((auto) => auto.año))).map((año) => (
+          {Array.from(new Set(autos.sort((a,b) => a.año - b.año ).map((auto) => auto.año))).map((año) => (
             <option key={año} value={año}>
               {año}
             </option>

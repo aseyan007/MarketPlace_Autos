@@ -38,7 +38,7 @@ function Registro() {
       nombre,
       apellido,
       email,
-      contraseña,
+      password: contraseña,
       direccion,
       direccion2,
       ciudad,
